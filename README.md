@@ -11,6 +11,13 @@
 - ESLint
 - Browsersync
 
+## Test
+
+- Enzyme
+- Mocha
+- Chai
+- Sinon
+
 Run concurrently the following 2 commands:
 
 ```sh
