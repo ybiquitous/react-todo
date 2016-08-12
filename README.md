@@ -11,13 +11,6 @@
 - ESLint
 - Browsersync
 
-## Test
-
-- Enzyme
-- Mocha
-- Chai
-- Sinon
-
 Run concurrently the following 2 commands:
 
 ```sh
@@ -27,4 +20,19 @@ npm run watch
 
 ## Test
 
-TODO
+- Enzyme
+- Mocha
+- Chai
+- Sinon
+
+Run tests:
+
+```sh
+npm test
+```
+
+In watch mode:
+
+```sh
+npm test -- -w
+```
