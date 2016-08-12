@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 export default class TodoInput extends React.Component {
   static get propTypes() {
     return {
-      onCommit: React.PropTypes.func.isRequired
+      onCommit: PropTypes.func.isRequired
     }
   }
 
@@ -23,6 +23,14 @@ export default class TodoInput extends React.Component {
   }
 
   render() {
-    return <input type="text" onKeyPress={this.handleKeyPress} />
+    return (
+      <input
+        type="text"
+        placeholder="Please type and press ENTER"
+        autoFocus
+        style={{ width: '100%', height: '2rem', padding: '0.1rem' }}
+        onKeyPress={this.handleKeyPress}
+      />
+    )
   }
 }

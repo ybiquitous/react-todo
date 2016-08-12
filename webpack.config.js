@@ -6,7 +6,7 @@ module.exports = {
   entry: './app/index.jsx',
   output: {
     path: './build',
-    filename: 'index.bundle.js'
+    filename: 'app.js'
   },
   devtool: 'inline-source-map',
   module: {
@@ -14,12 +14,12 @@ module.exports = {
       {
         test: /\.js(x)?$/,
         exclude: /(node_modules)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        loader: 'babel'
       }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     new CopyWebpackPlugin([
