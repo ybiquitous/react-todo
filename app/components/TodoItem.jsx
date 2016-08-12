@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-export default function TodoItem({ id, text, done, onCheck, onDelete }) {
+export default function TodoItem({ id, text, done, onDone, onDelete }) {
   function handleChange(event) {
-    onCheck({ id, done: event.target.checked })
+    onDone({ id, done: event.target.checked })
   }
 
   function handleClick(event) {
@@ -10,7 +10,7 @@ export default function TodoItem({ id, text, done, onCheck, onDelete }) {
     onDelete({ id })
   }
 
-  const domID = `input-${id}`
+  const domID = `todo-item-${id}`
   const style = { marginLeft: '0.5rem' }
   if (done) {
     style.textDecoration = 'line-through'
@@ -34,7 +34,7 @@ export default function TodoItem({ id, text, done, onCheck, onDelete }) {
 TodoItem.propTypes = {
   id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
-  done: PropTypes.bool.isRequired,
-  onCheck: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+  done: PropTypes.bool,
+  onDone: PropTypes.func,
+  onDelete: PropTypes.func
 }

@@ -7,28 +7,22 @@ export default class TodoApp extends React.Component {
     super(props)
 
     this.state = {
-      todos: [
-        { id: 1, text: 'a', done: true },
-        { id: 2, text: 'b', done: false }
-      ]
+      todos: []
     }
 
     this.handleCommit = this.handleCommit.bind(this)
-    this.handleCheck = this.handleCheck.bind(this)
+    this.handleDone = this.handleDone.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
 
-  handleCommit(newText) {
+  handleCommit({ value }) {
     const todos = this.state.todos
-    let maxId = 0
-    if (todos.length > 0) {
-      maxId = Math.max(...todos.map(todo => todo.id))
-    }
-    const newTodo = { id: maxId + 1, text: newText, done: false }
+    const maxId = todos.length === 0 ? 0 : Math.max(...todos.map(t => t.id))
+    const newTodo = { id: maxId + 1, text: value, done: false }
     this.setState({ todos: todos.concat(newTodo) })
   }
 
-  handleCheck({ id, done }) {
+  handleDone({ id, done }) {
     const found = this.state.todos.find(todo => todo.id === id)
     if (found) {
       found.done = done
@@ -46,7 +40,11 @@ export default class TodoApp extends React.Component {
     return (
       <div>
         <TodoInput onCommit={this.handleCommit} />
-        <TodoList todos={this.state.todos} onCheck={this.handleCheck} onDelete={this.handleDelete} />
+        <TodoList
+          todos={this.state.todos}
+          onDone={this.handleDone}
+          onDelete={this.handleDelete}
+        />
       </div>
     )
   }

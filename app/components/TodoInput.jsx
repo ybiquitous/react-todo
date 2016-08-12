@@ -1,26 +1,30 @@
 import React, { PropTypes } from 'react'
 
 export default function TodoInput({ onCommit }) {
-  function handleKeyPress(event) {
-    const el = event.target
-    const value = el.value.trim()
-    if (value && event.key === 'Enter') {
-      onCommit(value)
-      el.value = ''
+  function handleSubmit(event) {
+    event.preventDefault()
+
+    const todo = event.target.elements.todo
+    const value = todo.value.trim()
+    if (value) {
+      onCommit({ value })
+      todo.value = ''
     }
   }
 
   return (
-    <input
-      type="text"
-      placeholder="Please type and press ENTER"
-      autoFocus
-      style={{ width: '100%', height: '2rem', padding: '0.1rem' }}
-      onKeyPress={handleKeyPress}
-    />
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="todo"
+        placeholder="Please type and press ENTER"
+        autoFocus
+        style={{ width: '100%', height: '2rem', padding: '0.1rem' }}
+      />
+    </form>
   )
 }
 
 TodoInput.propTypes = {
-  onCommit: PropTypes.func.isRequired
+  onCommit: PropTypes.func
 }

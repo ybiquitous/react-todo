@@ -5,20 +5,21 @@ import { expect } from 'chai'
 
 import TodoInput from '../app/components/TodoInput'
 
-describe('<TodoInput />', () => {
-  it('render <input />', () => {
-    const wrapper = shallow(<TodoInput onCommit={() => {}} />)
-    expect(wrapper.find('input')).to.have.length(1)
+describe('TodoInput', () => {
+  it('render', () => {
+    const wrapper = shallow(<TodoInput />)
+    expect(wrapper.find('form')).to.have.length(1)
+    expect(wrapper.find('form input')).to.have.length(1)
   })
 
-  it('simulate commit event', () => {
+  it('onCommit', () => {
     const onCommit = sinon.spy()
     const wrapper = shallow(<TodoInput onCommit={onCommit} />)
-    wrapper.find('input').simulate('keyPress', {
-      key: 'Enter',
-      target: { value: ' a ' }
+    wrapper.find('form').simulate('submit', {
+      preventDefault() {},
+      target: { elements: { todo: { value: ' a ' } } }
     })
     expect(onCommit).to.have.property('callCount', 1)
-    expect(onCommit).to.have.property('args').that.deep.equals([['a']])
+    expect(onCommit).to.have.property('args').that.deep.equals([[{ value: 'a' }]])
   })
 })
