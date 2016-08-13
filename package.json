@@ -10,7 +10,10 @@
     "watch": "webpack --watch --color",
     "pretest": "npm run lint",
     "test": "mocha --compilers jsx:babel-core/register test",
-    "lint": "eslint ."
+    "test:e2e": "wdio wdio.conf.js",
+    "lint": "eslint .",
+    "webdriver:update": "webdriver-manager update",
+    "webdriver:start": "webdriver-manager start"
   },
   "keywords": [],
   "author": "ybiquitous <10koba01@gmail.com>",
@@ -37,6 +40,9 @@
     "mocha": "^3.0.2",
     "react-addons-test-utils": "^15.3.0",
     "sinon": "^1.17.5",
+    "wdio-mocha-framework": "^0.4.0",
+    "webdriver-manager": "^10.2.2",
+    "webdriverio": "^4.2.5",
     "webpack": "^1.13.1"
   }
 }

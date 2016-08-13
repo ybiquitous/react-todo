@@ -14,7 +14,7 @@
 Run on local browser:
 
 ```sh
-npm start
+$ npm start
 ```
 
 ## Test
@@ -23,15 +23,30 @@ npm start
 - Mocha
 - Chai
 - Sinon
+- WebdriverIO
 
 Run tests:
 
 ```sh
-npm test
+$ npm test
 ```
 
 In watch mode:
 
 ```sh
-npm test -- -w
+$ npm test -- -w
+```
+
+Run E2E tests:
+
+```sh
+$ npm start
+```
+
+```sh
+$ npm run webdriver:start
+```
+
+```sh
+$ npm run test:e2e
 ```
