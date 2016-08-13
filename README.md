@@ -11,11 +11,10 @@
 - ESLint
 - Browsersync
 
-Run concurrently the following 2 commands:
+Run on local browser:
 
 ```sh
 npm start
-npm run watch
 ```
 
 ## Test
