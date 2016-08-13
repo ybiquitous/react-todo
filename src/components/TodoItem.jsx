@@ -11,13 +11,8 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
   }
 
   const domID = `todo-item-${id}`
-  const style = { marginLeft: '0.5rem' }
-  if (done) {
-    style.textDecoration = 'line-through'
-    style.color = 'gray'
-  }
   return (
-    <li key={id} style={{ lineHeight: '1.5rem' }}>
+    <li key={id}>
       <input
         id={domID}
         type="checkbox"
@@ -25,8 +20,8 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
         checked={done}
         onChange={handleChange}
       />
-      <label htmlFor={domID} style={style}>{text}</label>
-      <a href="" title="Delete" style={{ marginLeft: '5rem' }} onClick={handleClick}>x</a>
+      <label htmlFor={domID} className={done ? 'done' : null}>{text}</label>
+      <a href="" title="Delete" onClick={handleClick}>x</a>
     </li>
   )
 }

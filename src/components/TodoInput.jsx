@@ -19,7 +19,6 @@ export default function TodoInput({ onCommit }) {
         name="todo"
         placeholder="Please type and press ENTER"
         autoFocus
-        style={{ width: '100%', height: '2rem', padding: '0.1rem' }}
       />
     </form>
   )

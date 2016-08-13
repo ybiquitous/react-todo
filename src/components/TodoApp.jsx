@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 
@@ -6,13 +6,16 @@ export default class TodoApp extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      todos: []
-    }
+    this.state = props.storage.load() || { todos: [] }
 
     this.handleCommit = this.handleCommit.bind(this)
     this.handleDone = this.handleDone.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+  }
+
+  setState(data) {
+    super.setState(data)
+    this.props.storage.save(data)
   }
 
   handleCommit({ value }) {
@@ -48,4 +51,8 @@ export default class TodoApp extends React.Component {
       </div>
     )
   }
+}
+
+TodoApp.propTypes = {
+  storage: PropTypes.object.isRequired
 }
