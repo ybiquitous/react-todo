@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "React TODO App",
   "main": "index.js",
+  "engines": {
+    "node": "6"
+  },
   "scripts": {
     "start": "http-server build",
     "browser-sync": "browser-sync start --config bs-config.js --color",
