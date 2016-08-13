@@ -14,7 +14,7 @@
 Run on local browser:
 
 ```sh
-$ npm start
+$ npm run watch
 ```
 
 ## Test

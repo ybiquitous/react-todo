@@ -4,10 +4,11 @@
   "description": "React TODO App",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run browser-sync\" \"npm run watch\"",
+    "prestart": "npm run build",
+    "start": "http-server build",
     "browser-sync": "browser-sync start --config bs-config.js --color",
     "build": "webpack",
-    "watch": "webpack --watch --color",
+    "watch": "concurrently \"webpack --watch --color\" \"npm run browser-sync\"",
     "pretest": "npm run lint",
     "test": "mocha --compilers jsx:babel-core/register test",
     "test:e2e": "wdio wdio.conf.js",
@@ -19,6 +20,7 @@
   "author": "ybiquitous <10koba01@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "http-server": "^0.9.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },
