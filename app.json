@@ -1,8 +1,12 @@
 {
   "name": "react-todo",
   "scripts": {
+    "postdeploy": "npm run build"
   },
   "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "value": "false"
+    }
   },
   "formation": {
     "web": {
