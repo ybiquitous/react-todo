@@ -25,7 +25,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         context: 'src',
-        from: '**/*.html',
+        from: '**/*.*(html|css)',
         to: path.join(__dirname, 'build')
       }
     ])
