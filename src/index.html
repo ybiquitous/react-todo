@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>TODO List</title>
     <style>
       body {
@@ -20,20 +20,24 @@
       li {
         margin: 1rem 0;
       }
+      li:hover {
+        background: lightgreen;
+      }
       label {
         display: inline-block;
         margin: 0 1rem;
         width: 87%;
+        cursor: pointer;
       }
       .done {
-        color: gray;
+        color: lightgray;
         text-decoration: line-through;
       }
       input[type="text"] {
         width: 100%;
         height: 2rem;
         padding: 1rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     </style>
   </head>
