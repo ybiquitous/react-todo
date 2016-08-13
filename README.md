@@ -40,7 +40,7 @@ $ npm test -- -w
 Run E2E tests:
 
 ```sh
-$ npm start
+$ npm run build && npm start
 ```
 
 ```sh

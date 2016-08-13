@@ -4,7 +4,6 @@
   "description": "React TODO App",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build",
     "start": "http-server build",
     "browser-sync": "browser-sync start --config bs-config.js --color",
     "build": "webpack",
@@ -14,7 +13,8 @@
     "test:e2e": "wdio wdio.conf.js",
     "lint": "eslint .",
     "webdriver:update": "webdriver-manager update",
-    "webdriver:start": "webdriver-manager start"
+    "webdriver:start": "webdriver-manager start",
+    "heroku-postbuild": "npm run build -- -p"
   },
   "keywords": [],
   "author": "ybiquitous <10koba01@gmail.com>",
