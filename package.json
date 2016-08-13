@@ -14,7 +14,8 @@
     "test:e2e": "wdio wdio.conf.js",
     "lint": "eslint .",
     "webdriver:update": "webdriver-manager update",
-    "webdriver:start": "webdriver-manager start"
+    "webdriver:start": "webdriver-manager start",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "ybiquitous <10koba01@gmail.com>",
