@@ -2,9 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { expect } from 'chai'
 
-import TodoInput from '../app/components/TodoInput'
-import TodoList from '../app/components/TodoList'
-import TodoApp from '../app/components/TodoApp'
+import TodoInput from '../src/components/TodoInput'
+import TodoList from '../src/components/TodoList'
+import TodoApp from '../src/components/TodoApp'
 
 describe('TodoApp', () => {
   it('render', () => {

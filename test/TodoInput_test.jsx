@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import { expect } from 'chai'
 
-import TodoInput from '../app/components/TodoInput'
+import TodoInput from '../src/components/TodoInput'
 
 describe('TodoInput', () => {
   it('render', () => {

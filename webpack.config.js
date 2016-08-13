@@ -3,7 +3,7 @@ const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './app/index.jsx',
+  entry: './src/index.jsx',
   output: {
     path: './build',
     filename: 'app.js'
@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       {
-        context: 'app',
+        context: 'src',
         from: '**/*.html',
         to: path.join(__dirname, 'build')
       }
