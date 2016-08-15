@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ybiquitous/react-todo.svg)](https://travis-ci.org/ybiquitous/react-todo)
+
 # React TODO App
 
 ## Dependencies
