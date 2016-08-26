@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start",
-    "heroku-postbuild": "npm run build -- -p"
+    "postinstall": "if [ $BUILD_ASSETS ]; then npm run build -- -p; fi"
   },
   "keywords": [],
   "author": "ybiquitous <10koba01@gmail.com>",
