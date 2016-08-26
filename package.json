@@ -43,7 +43,7 @@
     "eslint-plugin-jsx-a11y": "^2.1.0",
     "eslint-plugin-react": "^6.1.0",
     "mocha": "^3.0.2",
-    "react-addons-test-utils": "^15.3.0",
+    "react-addons-test-utils": "^15.3.1",
     "sinon": "^1.17.5",
     "wdio-mocha-framework": "^0.4.0",
     "webdriver-manager": "^10.2.3",
