@@ -47,7 +47,7 @@
     "sinon": "^1.17.5",
     "wdio-mocha-framework": "^0.4.0",
     "webdriver-manager": "^10.2.3",
-    "webdriverio": "^4.2.5",
+    "webdriverio": "^4.2.8",
     "webpack": "^1.13.1"
   }
 }
