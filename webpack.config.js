@@ -1,5 +1,6 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const path = require('path')
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -28,6 +29,11 @@ module.exports = {
         from: '**/*.*(html|css)',
         to: path.join(__dirname, 'build')
       }
-    ])
+    ]),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    })
   ]
 }
