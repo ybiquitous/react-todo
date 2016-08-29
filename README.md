@@ -6,6 +6,7 @@
 ## Dependencies
 
 - React
+- Express (Server-side rendering)
 
 ## Development
 

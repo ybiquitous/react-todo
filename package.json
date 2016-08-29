@@ -7,14 +7,14 @@
     "node": "6"
   },
   "scripts": {
-    "start": "http-server build",
+    "start": "node -r babel-register server.js",
     "browser-sync": "browser-sync start --config bs-config.js --color",
     "build": "webpack",
     "watch": "concurrently \"webpack --watch --color\" \"npm run browser-sync\"",
     "pretest": "npm run lint",
     "test": "mocha --compilers jsx:babel-core/register test",
     "test:e2e": "wdio wdio.conf.js",
-    "lint": "eslint .",
+    "lint": "eslint --ignore-path .gitignore .",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build -- -p; fi"
@@ -23,7 +23,9 @@
   "author": "ybiquitous <10koba01@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "http-server": "^0.9.0",
+    "babel-register": "^6.14.0",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1"
   },
