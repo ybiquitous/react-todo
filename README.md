@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ybiquitous/react-todo.png?label=ready&title=Ready)](https://waffle.io/ybiquitous/react-todo)
 [![Build Status](https://travis-ci.org/ybiquitous/react-todo.svg)](https://travis-ci.org/ybiquitous/react-todo)
 
 # React TODO App
