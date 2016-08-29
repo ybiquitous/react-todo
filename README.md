@@ -17,7 +17,7 @@
 Run on local browser:
 
 ```sh
-$ npm run watch
+npm run watch
 ```
 
 ## Test
@@ -31,25 +31,25 @@ $ npm run watch
 Run tests:
 
 ```sh
-$ npm test
+npm test
 ```
 
 In watch mode:
 
 ```sh
-$ npm test -- -w
+npm test -- -w
 ```
 
 Run E2E tests:
 
 ```sh
-$ npm run build && npm start
+npm run build && npm start
 ```
 
 ```sh
-$ npm run webdriver:start
+npm run webdriver:start
 ```
 
 ```sh
-$ npm run test:e2e
+npm run test:e2e
 ```
