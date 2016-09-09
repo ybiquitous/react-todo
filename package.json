@@ -14,7 +14,7 @@
     "pretest": "npm run lint",
     "test": "mocha --compilers jsx:babel-core/register test",
     "test:e2e": "wdio wdio.conf.js",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint --ext .js,.jsx --ignore-path .gitignore .",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build -- -p; fi"

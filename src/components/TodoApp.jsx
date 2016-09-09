@@ -1,8 +1,15 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 
-export default class TodoApp extends React.Component {
+const propTypes = {
+  storage: PropTypes.shape({
+    load: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired
+  }).isRequired
+}
+
+export default class TodoApp extends Component {
   constructor(props) {
     super(props)
 
@@ -53,6 +60,4 @@ export default class TodoApp extends React.Component {
   }
 }
 
-TodoApp.propTypes = {
-  storage: PropTypes.object.isRequired
-}
+TodoApp.propTypes = propTypes

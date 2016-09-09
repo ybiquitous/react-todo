@@ -1,5 +1,13 @@
 import React, { PropTypes } from 'react'
 
+const propTypes = {
+  id: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  done: PropTypes.bool,
+  onDone: PropTypes.func,
+  onDelete: PropTypes.func
+}
+
 export default function TodoItem({ id, text, done, onDone, onDelete }) {
   function handleChange(event) {
     onDone({ id, done: event.target.checked })
@@ -26,10 +34,4 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
   )
 }
 
-TodoItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  text: PropTypes.string.isRequired,
-  done: PropTypes.bool,
-  onDone: PropTypes.func,
-  onDelete: PropTypes.func
-}
+TodoItem.propTypes = propTypes
