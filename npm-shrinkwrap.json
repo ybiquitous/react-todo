@@ -1168,9 +1168,9 @@
       "resolved": "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
     },
     "ejs": {
-      "version": "2.5.1",
-      "from": "ejs@latest",
-      "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.1.tgz"
+      "version": "2.5.2",
+      "from": "ejs@2.5.2",
+      "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.2.tgz"
     },
     "emitter-steward": {
       "version": "1.0.0",
@@ -1353,11 +1353,6 @@
           "resolved": "https://registry.npmjs.org/estraverse/-/estraverse-4.2.0.tgz"
         }
       }
-    },
-    "eslint-config-airbnb-base": {
-      "version": "5.0.2",
-      "from": "eslint-config-airbnb-base@>=5.0.2 <6.0.0",
-      "resolved": "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-5.0.2.tgz"
     },
     "eslint-import-resolver-node": {
       "version": "0.2.3",
