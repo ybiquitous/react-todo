@@ -17,7 +17,7 @@ describe('TodoItem', () => {
     expect(wrapper.find('label')).to.have.length(1)
     expect(wrapper.find('label').text()).to.equal('aaa')
     expect(wrapper.find('a')).to.have.length(1)
-    expect(wrapper.find('a').text()).to.equal('x')
+    expect(wrapper.find('a').text()).to.equal('X')
   })
 
   it('onDone', () => {
