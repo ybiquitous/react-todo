@@ -8,11 +8,18 @@
 - React
 - Express (Server-side rendering)
 
+## Start server
+
+```sh
+npm start
+```
+
 ## Development
 
 - Babel
 - Webpack
 - ESLint
+- Postcss
 - Browsersync
 
 Run on local browser:

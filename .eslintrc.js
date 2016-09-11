@@ -1,8 +1,12 @@
 module.exports = {
   root: true,
+  extends: ['airbnb'],
   rules: {
     'comma-dangle': ['error', 'never'],
     'semi': ['error', 'never']
   },
-  extends: 'airbnb'
+  env: {
+    browser: true,
+    node: true
+  }
 }

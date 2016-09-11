@@ -3,8 +3,8 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import { expect } from 'chai'
 
-import TodoItem from '../src/components/TodoItem'
-import TodoList from '../src/components/TodoList'
+import TodoItem from '../src/scripts/components/TodoItem'
+import TodoList from '../src/scripts/components/TodoList'
 
 describe('TodoList', () => {
   let props

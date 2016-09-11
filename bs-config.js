@@ -1,10 +1,6 @@
 module.exports = {
   files: [
-    'build/**/*.html',
-    'build/**/*.js',
-    'build/**/*.css'
+    'build/**/*'
   ],
-  server: {
-    baseDir: 'build'
-  }
+  proxy: 'localhost:3000'
 }

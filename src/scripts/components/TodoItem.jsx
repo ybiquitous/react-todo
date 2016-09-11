@@ -20,7 +20,7 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
 
   const domID = `todo-item-${id}`
   return (
-    <li key={id}>
+    <li>
       <input
         id={domID}
         type="checkbox"
@@ -28,8 +28,19 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
         checked={done}
         onChange={handleChange}
       />
-      <label htmlFor={domID} className={done ? 'done' : null}>{text}</label>
-      <a href="" title="Delete" onClick={handleClick}>x</a>
+      <label
+        htmlFor={domID}
+        className={done ? 'done' : null}
+      >
+        {text}
+      </label>
+      <a
+        href=""
+        title="Delete"
+        onClick={handleClick}
+      >
+        X
+      </a>
     </li>
   )
 }

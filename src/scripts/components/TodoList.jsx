@@ -8,13 +8,10 @@ const propTypes = {
 }
 
 export default function TodoList({ todos, onDone, onDelete }) {
-  return (
-    <ul>
-      {todos.map(t =>
-        <TodoItem key={t.id} onDone={onDone} onDelete={onDelete} {...t} />)
-      }
-    </ul>
-  )
+  function renderItem(todo) {
+    return <TodoItem {...todo} key={todo.id} onDone={onDone} onDelete={onDelete} />
+  }
+  return <ul>{todos.map(renderItem)}</ul>
 }
 
 TodoList.propTypes = propTypes
