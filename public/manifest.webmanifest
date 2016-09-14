@@ -1,16 +1,11 @@
 {
-  "lang": "en",
-  "dir": "ltr",
   "name": "TODO List",
   "description": "Simple TODO application",
   "short_name": "TODO",
+  "start_url": "/",
+  "display": "standalone",
   "icons": [{
     "src": "icons/todo_icon.png",
     "sizes": "64x64"
-  }],
-  "scope": "/",
-  "start_url": "/",
-  "display": "fullscreen",
-  "theme_color": "aliceblue",
-  "background_color": "white"
+  }]
 }
