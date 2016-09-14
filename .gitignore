@@ -3,3 +3,6 @@
 *.log
 .tern-*
 .dir-locals.el
+/public/*.js
+/public/*.css
+/public/manifest.json

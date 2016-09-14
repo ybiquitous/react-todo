@@ -13,7 +13,7 @@ module.exports = {
     styles: './src/styles.js'
   },
   output: {
-    path: './build',
+    path: './public',
     filename: '[name].[hash].js'
   },
   devtool: isProduction ? null : 'inline-source-map',

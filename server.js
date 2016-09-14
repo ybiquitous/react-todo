@@ -21,7 +21,7 @@ app.set('x-powered-by', false)
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
 
-const manifestPath = require.resolve('./build/manifest.json')
+const manifestPath = require.resolve('./public/manifest.json')
 
 app.get('/', (req, res) => {
   const html = ReactDOMServer.renderToString(todoApp({
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.use(express.static('build'))
+app.use(express.static('public'))
 
 app.listen(app.get('port'), () => {
   debug(`Listening on ${app.get('port')} port`)
