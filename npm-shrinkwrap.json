@@ -678,11 +678,6 @@
       "from": "batch@0.5.3",
       "resolved": "https://registry.npmjs.org/batch/-/batch-0.5.3.tgz"
     },
-    "batchflow": {
-      "version": "0.4.0",
-      "from": "batchflow@>=0.4.0 <0.5.0",
-      "resolved": "https://registry.npmjs.org/batchflow/-/batchflow-0.4.0.tgz"
-    },
     "benchmark": {
       "version": "1.0.0",
       "from": "benchmark@1.0.0",
@@ -1227,9 +1222,9 @@
       "resolved": "https://registry.npmjs.org/d/-/d-0.1.1.tgz"
     },
     "damerau-levenshtein": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "from": "damerau-levenshtein@>=1.0.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.0.tgz"
+      "resolved": "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.1.tgz"
     },
     "dashdash": {
       "version": "1.14.0",
@@ -1621,9 +1616,9 @@
       }
     },
     "eslint-config-airbnb-base": {
-      "version": "7.0.1",
-      "from": "eslint-config-airbnb-base@>=7.0.0 <8.0.0",
-      "resolved": "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-7.0.1.tgz"
+      "version": "7.1.0",
+      "from": "eslint-config-airbnb-base@>=7.1.0 <8.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-7.1.0.tgz"
     },
     "eslint-import-resolver-node": {
       "version": "0.2.3",
@@ -4500,9 +4495,9 @@
       "resolved": "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz"
     },
     "validator": {
-      "version": "5.6.0",
+      "version": "5.7.0",
       "from": "validator@>=5.4.0 <6.0.0",
-      "resolved": "https://registry.npmjs.org/validator/-/validator-5.6.0.tgz"
+      "resolved": "https://registry.npmjs.org/validator/-/validator-5.7.0.tgz"
     },
     "vary": {
       "version": "1.1.0",
