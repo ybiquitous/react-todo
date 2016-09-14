@@ -48,7 +48,7 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin('[name].[hash].css'),
-    new ManifestPlugin()
+    new ManifestPlugin({ fileName: 'assets.json' })
   ].concat(isProduction ? [
     new webpack.optimize.UglifyJsPlugin({
       compress: {

@@ -21,7 +21,7 @@ app.set('x-powered-by', false)
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
 
-const manifestPath = require.resolve('./public/manifest.json')
+const manifestPath = require.resolve('./public/assets.json')
 
 app.get('/', (req, res) => {
   const html = ReactDOMServer.renderToString(todoApp({
