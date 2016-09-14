@@ -1,3 +1,4 @@
+const path = require('path')
 const debug = require('debug')('app')
 const express = require('express')
 const React = require('react')
@@ -20,19 +21,21 @@ app.set('x-powered-by', false)
 
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
+app.set('publicDir', path.join(__dirname, 'public'))
 
-const manifestPath = require.resolve('./public/assets.json')
+const manifestPath = path.join(app.get('publicDir'), 'assets.json')
+const loadManifest = () => {
+  if (!app.get('production')) {
+    delete require.cache[manifestPath]
+  }
+  return require(manifestPath) // eslint-disable-line global-require
+}
 
 app.get('/', (req, res) => {
   const html = ReactDOMServer.renderToString(todoApp({
     storage: dummyStorage
   }))
-
-  if (!app.get('production')) {
-    delete require.cache[manifestPath]
-  }
-  const manifest = require(manifestPath) // eslint-disable-line global-require
-
+  const manifest = loadManifest(manifestPath)
   res.render('index', {
     html,
     stylePath: manifest['styles.css'],
@@ -40,7 +43,12 @@ app.get('/', (req, res) => {
   })
 })
 
-app.use(express.static('public'))
+app.get('/service-worker.js', (req, res) => {
+  const manifest = loadManifest(manifestPath)
+  res.sendFile(manifest['service-worker.js'], { root: app.get('publicDir') })
+})
+
+app.use(express.static(app.get('publicDir')))
 
 app.listen(app.get('port'), () => {
   debug(`Listening on ${app.get('port')} port`)

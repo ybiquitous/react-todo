@@ -10,7 +10,8 @@ const isProduction = process.env.NODE_ENV === 'production'
 module.exports = {
   entry: {
     scripts: './src/scripts.js',
-    styles: './src/styles.js'
+    styles: './src/styles.js',
+    'service-worker': './src/service-worker.js'
   },
   output: {
     path: './public',
