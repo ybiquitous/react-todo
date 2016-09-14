@@ -7,7 +7,7 @@ import TodoInput from '../src/scripts/components/TodoInput'
 
 describe('TodoInput', () => {
   it('render', () => {
-    const wrapper = shallow(<TodoInput />)
+    const wrapper = shallow(<TodoInput onCommit={sinon.spy()} />)
     expect(wrapper.find('form')).to.have.length(1)
     expect(wrapper.find('form input')).to.have.length(1)
   })
