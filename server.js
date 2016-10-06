@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const debug = require('debug')('app')
 const express = require('express')
@@ -24,11 +25,22 @@ app.set('production', process.env.NODE_ENV === 'production')
 app.set('publicDir', path.join(__dirname, 'public'))
 
 const manifestPath = path.join(app.get('publicDir'), 'assets.json')
-const loadManifest = () => {
-  if (!app.get('production')) {
-    delete require.cache[manifestPath]
+const cachedManifest = new Map()
+function loadManifest() {
+  if (cachedManifest.has('key') && app.get('production')) {
+    return cachedManifest.get('key')
   }
-  return require(manifestPath) // eslint-disable-line global-require
+  return new Promise((resolve, reject) => {
+    fs.readFile(manifestPath, 'utf8', (err, data) => {
+      if (err) {
+        reject(err)
+      } else {
+        const json = JSON.parse(data)
+        cachedManifest.set('key', json)
+        resolve(json)
+      }
+    })
+  })
 }
 
 app.get('/', (req, res) => {
