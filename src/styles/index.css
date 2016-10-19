@@ -31,6 +31,14 @@ input[type="text"] {
   width: 100%;
 }
 
+.valid {
+  background-color: #dfd;
+}
+
+.invalid {
+  background-color: #fdd;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -68,13 +76,9 @@ input[type="checkbox"] {
 }
 
 a {
-  color: #074b83;
+  color: #999;
   flex: 10%;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }

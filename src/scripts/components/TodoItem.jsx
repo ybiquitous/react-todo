@@ -39,7 +39,7 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
         title="Delete"
         onClick={handleClick}
       >
-        X
+        🗑
       </a>
     </li>
   )
