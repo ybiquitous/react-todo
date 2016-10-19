@@ -55,6 +55,7 @@ npm run build && npm start
 ```
 
 ```sh
+npm run webdriver:update
 npm run webdriver:start
 ```
 
