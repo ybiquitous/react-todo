@@ -30,17 +30,10 @@ function loadManifest() {
   if (cachedManifest.has('key') && app.get('production')) {
     return cachedManifest.get('key')
   }
-  return new Promise((resolve, reject) => {
-    fs.readFile(manifestPath, 'utf8', (err, data) => {
-      if (err) {
-        reject(err)
-      } else {
-        const json = JSON.parse(data)
-        cachedManifest.set('key', json)
-        resolve(json)
-      }
-    })
-  })
+  const data = fs.readFileSync(manifestPath, 'utf8')
+  const json = JSON.parse(data)
+  cachedManifest.set('key', json)
+  return json
 }
 
 app.get('/', (req, res) => {
