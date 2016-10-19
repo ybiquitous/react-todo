@@ -48,11 +48,6 @@ app.get('/', (req, res) => {
   })
 })
 
-app.get('/service-worker.js', (req, res) => {
-  const manifest = loadManifest(manifestPath)
-  res.sendFile(manifest['service-worker.js'], { root: app.get('publicDir') })
-})
-
 app.use(express.static(app.get('publicDir')))
 
 app.listen(app.get('port'), () => {

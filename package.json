@@ -32,7 +32,8 @@
     "*.@(css|scss)": "stylelint"
   },
   "pre-commit": [
-    "lint-staged"
+    "lint-staged",
+    "test"
   ],
   "dependencies": {
     "babel-register": "^6.14.0",

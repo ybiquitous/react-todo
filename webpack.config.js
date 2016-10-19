@@ -11,7 +11,6 @@ module.exports = {
   entry: {
     scripts: './src/scripts.js',
     styles: './src/styles.js',
-    'service-worker': './src/service-worker.js',
   },
   output: {
     path: './public',
