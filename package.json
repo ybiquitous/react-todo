@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "React TODO App",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ybiquitous/react-todo.git"
+  },
   "engines": {
     "node": "6"
   },
