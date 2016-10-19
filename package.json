@@ -1,8 +1,10 @@
 {
   "name": "react-todo",
   "version": "1.0.0",
+  "private": true,
   "description": "React TODO App",
   "main": "server.js",
+  "author": "ybiquitous <10koba01@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ybiquitous/react-todo.git"
@@ -32,9 +34,6 @@
   "pre-commit": [
     "lint-staged"
   ],
-  "keywords": [],
-  "author": "ybiquitous <10koba01@gmail.com>",
-  "license": "MIT",
   "dependencies": {
     "babel-register": "^6.14.0",
     "debug": "^2.2.0",
