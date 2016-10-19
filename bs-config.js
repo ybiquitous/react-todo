@@ -1,6 +1,6 @@
 module.exports = {
   files: [
-    'build/**/*',
+    'public/**/*',
   ],
   proxy: 'localhost:3000',
 }
