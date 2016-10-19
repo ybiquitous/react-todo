@@ -4,7 +4,7 @@ import TodoItem from './TodoItem'
 const propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
   onDone: PropTypes.func,
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
 }
 
 export default function TodoList({ todos, onDone, onDelete }) {

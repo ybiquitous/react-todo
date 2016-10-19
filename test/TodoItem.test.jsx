@@ -24,7 +24,7 @@ describe('TodoItem', () => {
     const onDone = sinon.spy()
     const wrapper = shallow(<TodoItem {...props} onDone={onDone} />)
     wrapper.find('input').simulate('change', {
-      target: { checked: true }
+      target: { checked: true },
     })
     expect(onDone).to.have.property('callCount', 1)
     expect(onDone).to.have.property('args')
@@ -35,7 +35,7 @@ describe('TodoItem', () => {
     const onDelete = sinon.spy()
     const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
     wrapper.find('a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(onDelete).to.have.property('callCount', 1)
     expect(onDelete).to.have.property('args')

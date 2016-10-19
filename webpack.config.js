@@ -11,11 +11,11 @@ module.exports = {
   entry: {
     scripts: './src/scripts.js',
     styles: './src/styles.js',
-    'service-worker': './src/service-worker.js'
+    'service-worker': './src/service-worker.js',
   },
   output: {
     path: './public',
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
   },
   devtool: isProduction ? null : 'inline-source-map',
   module: {
@@ -23,7 +23,7 @@ module.exports = {
       {
         test: /\.js(x)?$/,
         exclude: /(node_modules)/,
-        loader: 'babel'
+        loader: 'babel',
       },
       {
         test: /\.(s)?css$/,
@@ -31,30 +31,30 @@ module.exports = {
           'style',
           `css?importLoaders=1&${isProduction ? 'minimize' : ''}`,
           `postcss?${isProduction ? '' : 'sourceMap=inline'}`
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   postcss: () => [
     precss,
-    autoprefixer
+    autoprefixer,
   ],
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
     }),
     new ExtractTextPlugin('[name].[hash].css'),
-    new ManifestPlugin({ fileName: 'assets.json' })
+    new ManifestPlugin({ fileName: 'assets.json' }),
   ].concat(isProduction ? [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
-    })
-  ] : [])
+        warnings: false,
+      },
+    }),
+  ] : []),
 }

@@ -17,7 +17,7 @@ describe('TodoInput', () => {
     const wrapper = shallow(<TodoInput onCommit={onCommit} />)
     wrapper.find('form').simulate('submit', {
       preventDefault() {},
-      target: { elements: { todo: { value: ' a ' } } }
+      target: { elements: { todo: { value: ' a ' } } },
     })
     expect(onCommit).to.have.property('callCount', 1)
     expect(onCommit).to.have.property('args').that.deep.equals([[{ value: 'a' }]])

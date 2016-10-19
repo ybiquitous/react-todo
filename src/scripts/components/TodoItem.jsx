@@ -5,7 +5,7 @@ const propTypes = {
   text: PropTypes.string.isRequired,
   done: PropTypes.bool,
   onDone: PropTypes.func,
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
 }
 
 export default function TodoItem({ id, text, done, onDone, onDelete }) {

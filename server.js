@@ -9,7 +9,7 @@ const TodoApp = require('./src/scripts/components/TodoApp').default
 const todoApp = React.createFactory(TodoApp)
 const dummyStorage = {
   load() {},
-  save() {}
+  save() {},
 }
 
 const app = express()
@@ -38,13 +38,13 @@ function loadManifest() {
 
 app.get('/', (req, res) => {
   const html = ReactDOMServer.renderToString(todoApp({
-    storage: dummyStorage
+    storage: dummyStorage,
   }))
   const manifest = loadManifest(manifestPath)
   res.render('index', {
     html,
     stylePath: manifest['styles.css'],
-    scriptPath: manifest['scripts.js']
+    scriptPath: manifest['scripts.js'],
   })
 })
 

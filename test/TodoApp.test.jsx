@@ -11,7 +11,7 @@ describe('TodoApp', () => {
   let props
   before(() => {
     props = {
-      storage: { load: sinon.spy(), save: sinon.spy() }
+      storage: { load: sinon.spy(), save: sinon.spy() },
     }
   })
 
@@ -25,7 +25,7 @@ describe('TodoApp', () => {
     const wrapper = shallow(<TodoApp {...props} />)
     wrapper.find(TodoInput).simulate('commit', { value: 'aaa' })
     expect(wrapper.state('todos')).to.deep.equal([
-      { id: 1, text: 'aaa', done: false }
+      { id: 1, text: 'aaa', done: false },
     ])
   })
 
@@ -34,7 +34,7 @@ describe('TodoApp', () => {
     wrapper.setState({ todos: [{ id: 1, text: 'aaa', done: false }] })
     wrapper.find(TodoList).simulate('done', { id: 1, done: true })
     expect(wrapper.state('todos')).to.deep.equal([
-      { id: 1, text: 'aaa', done: true }
+      { id: 1, text: 'aaa', done: true },
     ])
   })
 

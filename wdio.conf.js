@@ -1,13 +1,13 @@
 exports.config = {
   specs: [
-    './test/e2e/**/*.js'
+    './test/e2e/**/*.js',
   ],
   exclude: [
   ],
   maxInstances: 10,
   capabilities: [{
     maxInstances: 5,
-    browserName: 'chrome'
+    browserName: 'chrome',
   }],
   sync: true,
   logLevel: 'verbose',
@@ -20,5 +20,5 @@ exports.config = {
   framework: 'mocha',
   reporters: ['dot'],
   mochaOpts: {
-  }
+  },
 }

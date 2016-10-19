@@ -5,8 +5,8 @@ import TodoList from './TodoList'
 const propTypes = {
   storage: PropTypes.shape({
     load: PropTypes.func.isRequired,
-    save: PropTypes.func.isRequired
-  }).isRequired
+    save: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default class TodoApp extends Component {

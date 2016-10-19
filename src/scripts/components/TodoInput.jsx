@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const propTypes = {
-  onCommit: PropTypes.func.isRequired
+  onCommit: PropTypes.func.isRequired,
 }
 
 export default function TodoInput({ onCommit }) {

@@ -10,7 +10,7 @@ describe('TodoList', () => {
   let props
   before(() => {
     props = {
-      todos: [{ id: 1, text: 'aaa' }, { id: 2, text: 'bbb' }]
+      todos: [{ id: 1, text: 'aaa' }, { id: 2, text: 'bbb' }],
     }
   })
 
