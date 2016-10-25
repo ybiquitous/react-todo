@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import tapOrClick from 'react-tap-or-click'
 
 const propTypes = {
   id: PropTypes.number.isRequired,
@@ -37,7 +38,7 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
       <a
         href=""
         title="Delete"
-        onClick={handleClick}
+        {...tapOrClick(handleClick)}
       >
         ❌
       </a>
