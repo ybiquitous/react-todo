@@ -22,6 +22,7 @@ export default class TodoInput extends Component {
     if (value) {
       this.props.onCommit({ value })
       todo.value = ''
+      this.setState({ inputClass: null })
     }
   }
 
