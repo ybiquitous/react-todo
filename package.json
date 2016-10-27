@@ -20,7 +20,7 @@
     "pretest": "npm run eslint:all && npm run stylelint:all",
     "test": "mocha --reporter dot --compilers jsx:babel-register test",
     "test:e2e": "wdio wdio.conf.js",
-    "eslint:all": "eslint --ext .js,.jsx --ignore-path .gitignore .",
+    "eslint:all": "eslint --ext .js,.jsx --ignore-path .gitignore --max-warnings=0 .",
     "stylelint:all": "stylelint --ignore-path .gitignore \"./src/styles/**/*\"",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start",
@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.@(js|jsx)": [
-      "eslint --fix",
+      "eslint --fix --max-warnings=0",
       "git add"
     ],
     "*.@(css|scss)": "stylelint"

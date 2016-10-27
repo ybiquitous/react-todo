@@ -8,9 +8,8 @@ cache:
     - node_modules
 
 install:
-  - npm install
-  - npm update
-  - npm prune
+  - npm install -g yarn
+  - yarn
 
 script:
-  - npm test
+  - yarn test

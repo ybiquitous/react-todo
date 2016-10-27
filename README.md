@@ -11,7 +11,7 @@
 ## Start server
 
 ```sh
-npm start
+yarn start
 ```
 
 ## Development
@@ -25,7 +25,7 @@ npm start
 Run on local browser:
 
 ```sh
-npm run watch
+yarn watch
 ```
 
 ## Test
@@ -39,26 +39,26 @@ npm run watch
 Run tests:
 
 ```sh
-npm test
+yarn test
 ```
 
 In watch mode:
 
 ```sh
-npm test -- -w
+yarn test -- -w
 ```
 
 Run E2E tests:
 
 ```sh
-npm run build && npm start
+yarn build && yarn start
 ```
 
 ```sh
-npm run webdriver:update
-npm run webdriver:start
+yarn webdriver:update
+yarn webdriver:start
 ```
 
 ```sh
-npm run test:e2e
+yarn test:e2e
 ```
