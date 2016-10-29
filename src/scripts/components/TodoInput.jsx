@@ -34,16 +34,10 @@ export default class TodoInput extends Component {
   render() {
     const { invalid } = this.state
     let inputClass
-    let alertClass
-    let alertMsg
     if (invalid == null) {
       inputClass = null
-      alertClass = 'is-hidden'
-      alertMsg = ''
     } else {
       inputClass = invalid ? 'invalid' : 'valid'
-      alertClass = invalid ? '' : 'is-hidden'
-      alertMsg = invalid ? 'Please input some text.' : ''
     }
 
     return (
@@ -57,8 +51,8 @@ export default class TodoInput extends Component {
           onInput={this.handleInput}
           className={inputClass}
         />
-        <p className={`alert ${alertClass}`} role="alert">
-          {alertMsg}
+        <p className={`alert${invalid ? ' show' : ''}`} role="alert">
+          Please input some text.
         </p>
       </form>
     )

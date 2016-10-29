@@ -59,12 +59,14 @@ input[type="text"] {
 
 .alert {
   color: #f00;
-  max-height: 20px;
-  transition: max-height 0.7s;
+  margin-bottom: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.7s;
 }
 
-.alert.is-hidden {
-  max-height: 0;
+.alert.show {
+  max-height: 1.2rem;
 }
 
 ul {
