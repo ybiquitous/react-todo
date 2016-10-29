@@ -24,6 +24,24 @@ h1 {
   text-align: center;
 }
 
+.count {
+  background-color: #888;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 60%;
+  font-weight: bold;
+  height: 2rem;
+  margin-left: 1rem;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  top: -3px;
+  vertical-align: middle;
+  width: 2rem;
+}
+
 input[type="text"] {
   font-size: 1.5rem;
   height: 4rem;
@@ -42,7 +60,7 @@ input[type="text"] {
 .alert {
   color: #f00;
   max-height: 20px;
-  transition: max-height 0.5s;
+  transition: max-height 0.7s;
 }
 
 .alert.is-hidden {

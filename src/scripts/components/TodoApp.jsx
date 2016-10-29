@@ -47,11 +47,16 @@ export default class TodoApp extends Component {
   }
 
   render() {
+    const { todos } = this.state
     return (
       <div>
+        <h1>
+          TODO List
+          <span className="count">{todos.length}</span>
+        </h1>
         <TodoInput onCommit={this.handleCommit} />
         <TodoList
-          todos={this.state.todos}
+          todos={todos}
           onDone={this.handleDone}
           onDelete={this.handleDelete}
         />
