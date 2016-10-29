@@ -39,6 +39,16 @@ input[type="text"] {
   background-color: #fdd;
 }
 
+.alert {
+  color: #f00;
+  max-height: 20px;
+  transition: max-height 0.5s;
+}
+
+.alert.is-hidden {
+  max-height: 0;
+}
+
 ul {
   list-style: none;
   margin: 0;

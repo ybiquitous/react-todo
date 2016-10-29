@@ -8,8 +8,7 @@ export default class TodoInput extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { inputClass: null }
-
+    this.state = { invalid: null }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
   }
@@ -22,29 +21,45 @@ export default class TodoInput extends Component {
     if (value) {
       this.props.onCommit({ value })
       todo.value = ''
-      this.setState({ inputClass: null })
+      this.setState({ invalid: null })
     }
   }
 
   handleInput(event) {
     const el = event.target
-    const inputClass = el.checkValidity() ? 'valid' : 'invalid'
-    this.setState({ inputClass })
+    const value = el.value.trim()
+    this.setState({ invalid: !value })
   }
 
   render() {
+    const { invalid } = this.state
+    let inputClass
+    let alertClass
+    let alertMsg
+    if (invalid == null) {
+      inputClass = null
+      alertClass = 'is-hidden'
+      alertMsg = ''
+    } else {
+      inputClass = invalid ? 'invalid' : 'valid'
+      alertClass = invalid ? '' : 'is-hidden'
+      alertMsg = invalid ? 'Please input some text.' : ''
+    }
+
     return (
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="todo"
-          placeholder="Reserve restaurant"
+          placeholder="e.g. Reserve restaurant"
           autoFocus
-          required
           maxLength="300"
           onInput={this.handleInput}
-          className={this.state.inputClass}
+          className={inputClass}
         />
+        <p className={`alert ${alertClass}`} role="alert">
+          {alertMsg}
+        </p>
       </form>
     )
   }
