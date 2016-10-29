@@ -29,7 +29,7 @@ export default class TodoApp extends Component {
     const todos = this.state.todos
     const maxId = todos.length === 0 ? 0 : Math.max(...todos.map(t => t.id))
     const newTodo = { id: maxId + 1, text: value, done: false }
-    this.setState({ todos: todos.concat(newTodo) })
+    this.setState({ todos: [newTodo].concat(todos) })
   }
 
   handleDone({ id, done }) {
