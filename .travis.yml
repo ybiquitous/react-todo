@@ -15,10 +15,17 @@ install:
 script:
   - yarn lint
   - yarn test
+  # E2E test (disable)
+  # - yarn webdriver &
+  # - yarn build
+  # - yarn start &
+  # - sleep 10
+  # - yarn test:e2e
 
-  # E2E test
-  - yarn webdriver &
-  - yarn build
-  - yarn start &
-  - sleep 10
-  - yarn test:e2e
+deploy:
+  provider: heroku
+  api_key:
+    secure: "j85DJpudBUeC5UofY6nCsdD0N0q/AohJpVzD/gBz7vLEUSYsy6W7sLkiS+nVqtprqCDZpK5TDTpYNaoQI/neQwIfP4FulnJmHhWTHQ7hl3cIZq8lS4ZZ64uIy5IXTVck9F4YRmBhjZJK4XaWkpaKFUZ7jjZfT7KhV99YMLYCZMpxdueuSWOJKiZHC0XDYEMHLScpMEzKpNL/9vLqQ4jGqtBdX1ANAgL3UbkYRBqw7B2K1LeU8Wem+XaQ72xbiKKGfc4c5P/iOYbQFNng1bKPOqdq2EDtz4J/dkc0+ggalaS5IIMUiFhJf1ATf3+JwnBl/mhPOv94yWK5YvdmtTae5DoG2XhSmP0FCRV3d3oPVvFrQZOGwsq+hCmFqfM4TsYMu8498Qvep0kTViZ5UIxBbhZrKXX9VAzTT01AZ5OHT1LuENwYunW1OAAqN9ERgOP0bOL7QsqMKDHix/CK2Jpvk/EF/Tpf3ozJBcHLH3SerkQ/px1pK2XJzkG7iBp4XWNFe0IA3Zu42+b3gJxt2+A94H3unErJbkbNk37Fh22jADVBCnTypdFF9jBLws3hjMVjFZN3H0Fd/oHp7QwewG+OqfjAzvxTAX9Yyx/Zewtc7B/7+IRDqm6I8j5E8+4pqyEq2RJgz60OcBw8yS2YADqPO7Vhkvoe+hmi3Yf7zUioFpo="
+  app:
+    master: react-todo-57147
+    staging: react-todo-57147-staging
