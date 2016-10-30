@@ -1,3 +1,5 @@
+const PORT = process.env.PORT || 3000
+
 exports.config = {
   specs: [
     './test/e2e/**/*.js',
@@ -13,12 +15,13 @@ exports.config = {
   logLevel: 'verbose',
   coloredLogs: true,
   screenshotPath: './errorShots/',
-  baseUrl: 'http://localhost:3000',
+  baseUrl: `http://localhost:${PORT}`,
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   framework: 'mocha',
   reporters: ['dot'],
   mochaOpts: {
+    timeout: 10000,
   },
 }
