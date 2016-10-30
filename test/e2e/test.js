@@ -4,7 +4,7 @@ describe('TODO List', () => {
   it('initial', () => {
     browser.url('/')
     assert.strictEqual(browser.getTitle(), 'TODO List')
-    assert.strictEqual(browser.getText('h1'), 'TODO List')
+    assert.strictEqual(browser.getText('h1'), 'TODO List0')
     assert.strictEqual(browser.getValue('input[type="text"]'), '')
   })
 
@@ -24,7 +24,7 @@ describe('TODO List', () => {
 
   it('delete TODO', () => {
     browser.url('/')
-    browser.click('a')
+    browser.click('.delete')
     assert.strictEqual(browser.isExisting('input[type="checkbox"]'), false)
     assert.strictEqual(browser.isExisting('label'), false)
   })

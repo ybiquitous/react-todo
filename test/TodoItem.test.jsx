@@ -16,8 +16,8 @@ describe('TodoItem', () => {
     expect(wrapper.find('input[type="checkbox"]')).to.have.length(1)
     expect(wrapper.find('label')).to.have.length(1)
     expect(wrapper.find('label').text()).to.equal('aaa')
-    expect(wrapper.find('a')).to.have.length(1)
-    expect(wrapper.find('a').text()).to.equal('❌')
+    expect(wrapper.find('.delete')).to.have.length(1)
+    expect(wrapper.find('.delete').text()).to.equal('❌')
   })
 
   it('onDone', () => {
@@ -34,9 +34,7 @@ describe('TodoItem', () => {
   it('onDelete', () => {
     const onDelete = sinon.spy()
     const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
-    wrapper.find('a').simulate('click', {
-      preventDefault() {},
-    })
+    wrapper.find('.delete').simulate('click', {})
     expect(onDelete).to.have.property('callCount', 1)
     expect(onDelete).to.have.property('args')
       .that.deep.equals([[{ id: 1 }]])

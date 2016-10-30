@@ -1,4 +1,3 @@
-/* eslint 'import/no-extraneous-dependencies': ['error', {devDependencies: true}] */
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')

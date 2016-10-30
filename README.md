@@ -55,8 +55,7 @@ yarn build && yarn start
 ```
 
 ```sh
-yarn webdriver:update
-yarn webdriver:start
+yarn webdriver
 ```
 
 ```sh
