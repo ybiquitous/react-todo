@@ -71,7 +71,7 @@
     "sinon": "^1.17.5",
     "style-loader": "^0.13.1",
     "stylelint": "^7.2.0",
-    "stylelint-config-standard": "^13.0.0",
+    "stylelint-config-standard": "^14.0.0",
     "wdio-mocha-framework": "^0.4.0",
     "webdriver-manager": "^10.2.3",
     "webdriverio": "^4.2.8",
