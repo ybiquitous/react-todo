@@ -3,9 +3,9 @@ language: node_js
 node_js:
   - "7"
 
-cache:
-  directories:
-    - node_modules
+# cache:
+#   directories:
+#     - node_modules
 
 install:
   - npm install -g yarn
@@ -14,3 +14,10 @@ install:
 script:
   - yarn lint
   - yarn test
+
+# for node-gyp
+addons:
+  apt:
+    packages:
+      - g++
+      - build-essential
