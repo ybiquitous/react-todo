@@ -3,10 +3,12 @@ dist: trusty
 language: node_js
 
 node_js:
-  - "7"
+  - "6"
 
 install:
   - npm install -g yarn
+  - npm root -g
+  - which yarn
   - yarn
 
 script:
