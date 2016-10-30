@@ -17,8 +17,8 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
 
-  # https://medium.com/javascript-scene/faster-more-reliable-ci-builds-with-yarn-7dbc0ef31580#.r3qr2tjlu
-  - npm install --cache-min=999999999 -g yarn
+  # yarn
+  - npm install -g yarn
 
 install:
   - yarn
