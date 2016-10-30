@@ -45,7 +45,7 @@ yarn test
 In watch mode:
 
 ```sh
-yarn test -- -w
+yarn test:watch
 ```
 
 Run E2E tests:

@@ -19,6 +19,7 @@
     "watch": "concurrently \"webpack --watch --color\" \"npm run browser-sync\"",
     "pretest": "npm run eslint:all && npm run stylelint:all",
     "test": "mocha --reporter dot --compilers jsx:babel-register test",
+    "test:watch": "npm test -- --watch",
     "test:e2e": "wdio wdio.conf.js",
     "eslint:all": "eslint --ext .js,.jsx --ignore-path .gitignore --max-warnings=0 .",
     "stylelint:all": "stylelint --ignore-path .gitignore \"./src/styles/**/*\"",
