@@ -16,4 +16,5 @@ script:
   - yarn lint
   - yarn test
   - yarn webdriver &
+  - sleep 10
   - yarn test:e2e -- --baseUrl=https://react-todo-57147.herokuapp.com
