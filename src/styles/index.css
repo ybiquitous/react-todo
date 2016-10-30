@@ -4,7 +4,7 @@
 
 html {
   color: #444;
-  font-family: Verdana, Roboto, sans-serif;
+  font-family: Verdana, "游ゴシック", sans-serif;
   font-size: 16px;
 }
 
@@ -59,10 +59,10 @@ input[type="text"] {
 
 .alert {
   color: #f00;
-  margin-bottom: 0;
+  margin: 0.5rem 0;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.7s;
+  transition: all 0.3s;
 }
 
 .alert.show {
@@ -79,11 +79,12 @@ li {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 li:hover {
   background-color: #f2f9fe;
+  cursor: pointer;
 }
 
 label {
@@ -105,10 +106,14 @@ input[type="checkbox"] {
   transform: scale(2);
 }
 
-a {
+.delete {
   color: #f44;
+  cursor: pointer;
   flex: 10%;
   font-size: 2rem;
   text-align: center;
-  text-decoration: none;
+}
+
+.delete:hover {
+  transform: scale(1.3);
 }

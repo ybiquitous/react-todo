@@ -14,8 +14,7 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
     onDone({ id, done: event.target.checked })
   }
 
-  function handleClick(event) {
-    event.preventDefault()
+  function handleDelete() {
     onDelete({ id })
   }
 
@@ -32,16 +31,17 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
       <label
         htmlFor={domID}
         className={done ? 'done' : null}
+        title={text}
       >
         {text}
       </label>
-      <a
-        href=""
+      <span
+        className="delete"
         title="Delete"
-        {...tapOrClick(handleClick)}
+        {...tapOrClick(handleDelete)}
       >
         ❌
-      </a>
+      </span>
     </li>
   )
 }
