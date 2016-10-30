@@ -7,8 +7,6 @@ node_js:
 
 install:
   - npm install -g yarn
-  - npm root -g
-  - which yarn
   - yarn
 
 script:
