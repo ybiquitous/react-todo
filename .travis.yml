@@ -15,7 +15,5 @@ install:
 script:
   - yarn lint
   - yarn test
-  - yarn build
-  - yarn start
-  - yarn webdriver
-  - yarn test:e2e
+  - yarn webdriver &
+  - yarn test:e2e -- --baseUrl=https://react-todo-57147.herokuapp.com
