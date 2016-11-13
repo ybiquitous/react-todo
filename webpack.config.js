@@ -28,11 +28,10 @@ const config = {
       },
       {
         test: /\.(s)?css$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
+        loader: ExtractTextPlugin.extract('style', [
           `css?importLoaders=1${PRODUCTION ? '&minimize' : ''}`,
-          `postcss?${PRODUCTION ? '' : 'sourceMap=inline'}`
-        ),
+          `postcss?${PRODUCTION ? '' : 'sourceMap=inline'}`,
+        ]),
       },
     ],
   },
@@ -60,13 +59,13 @@ const config = {
 if (process.env.NODE_ENV === 'production') {
   config.devtool = null
 
-  config.plugins.push(
+  config.plugins.push(...[
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
       },
-    })
-  )
+    }),
+  ])
 }
 
 
