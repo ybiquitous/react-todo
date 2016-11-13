@@ -17,12 +17,8 @@ describe('TodoList', () => {
   it('render', () => {
     const wrapper = shallow(<TodoList {...props} />)
     expect(wrapper.find(TodoItem)).to.have.length(2)
-    expect(wrapper.containsMatchingElement(
-      <TodoItem id={1} text="aaa" />
-    )).to.equal(true)
-    expect(wrapper.containsMatchingElement(
-      <TodoItem id={2} text="bbb" />
-    )).to.equal(true)
+    expect(wrapper.containsMatchingElement(<TodoItem id={1} text="aaa" />)).to.equal(true)
+    expect(wrapper.containsMatchingElement(<TodoItem id={2} text="bbb" />)).to.equal(true)
   })
 
   it('onDone', () => {
