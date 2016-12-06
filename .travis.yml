@@ -33,7 +33,7 @@ script:
   - export CHROME_BIN=google-chrome
   - yarn test:e2e
   - yarn webdriver:stop
-  - kill -0 $TEST_SERVER_PID
+  - kill -9 $TEST_SERVER_PID
 
 deploy:
   provider: heroku
