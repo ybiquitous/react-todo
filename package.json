@@ -24,7 +24,8 @@
     "stylelint:all": "stylelint --ignore-path=.gitignore \"./src/styles/**/*\"",
     "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
     "prewebdriver": "webdriver-manager update",
-    "webdriver": "webdriver-manager start",
+    "webdriver": "webdriver-manager start --detach",
+    "webdriver:stop": "webdriver-manager shutdown",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build -- -p; fi",
     "lint-staged": "lint-staged"
   },

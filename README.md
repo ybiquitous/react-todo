@@ -51,13 +51,9 @@ yarn test:watch
 Run E2E tests:
 
 ```sh
-yarn build && yarn start
-```
-
-```sh
+yarn build
+yarn start
 yarn webdriver
-```
-
-```sh
 yarn test:e2e
+yarn webdriver:stop
 ```
