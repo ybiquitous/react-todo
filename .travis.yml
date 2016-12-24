@@ -37,10 +37,10 @@ script:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      yarn build
-      git add public
-      git commit --no-verify --force --author="Travis <10koba01@gmail.com>" --message="build files to deploy"
-      git push --force origin production
+      yarn build;
+      git add public;
+      git commit --no-verify --force --author="Travis <10koba01@gmail.com>" --message="build files to deploy";
+      git push --force origin production;
     fi
 
 deploy:
