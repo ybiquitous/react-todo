@@ -38,7 +38,7 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       NODE_ENV=production yarn build;
-      git add public/;
+      git add --force public/;
       git commit --no-verify --author="Travis <10koba01@gmail.com>" --message="build files to deploy";
       git push --force origin production;
     fi
