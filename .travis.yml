@@ -36,12 +36,7 @@ script:
   - kill -9 $TEST_SERVER_PID
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      NODE_ENV=production yarn build;
-      git add --force public/;
-      git commit --no-verify --author="Travis <10koba01@gmail.com>" --message="build files to deploy";
-      git push --force origin production;
-    fi
+  - test "$TRAVIS_BRANCH" == "master" && .travis/production_build.sh
 
 deploy:
   provider: heroku
