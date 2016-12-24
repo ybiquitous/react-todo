@@ -10,4 +10,4 @@ git commit \
     --author="Travis <10koba01@gmail.com>" \
     --message="build files to deploy"
 
-git push --force origin/production
+git push --force origin/production HEAD:production
