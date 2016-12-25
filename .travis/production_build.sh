@@ -10,5 +10,6 @@ git commit \
     --author="Travis <10koba01@gmail.com>" \
     --message="build files to deploy"
 
+git fetch
 git branch -a
-git push --force origin production
+git push --quiet --force origin production
