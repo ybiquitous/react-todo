@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const precss = require('precss')
 const autoprefixer = require('autoprefixer')
 
@@ -68,8 +67,6 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false,
       },
     }),
-
-    new CleanWebpackPlugin([outputDir]),
   ])
 }
 
