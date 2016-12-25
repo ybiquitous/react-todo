@@ -10,4 +10,4 @@ git commit \
     --author="Travis <10koba01@gmail.com>" \
     --message="build files to deploy"
 
-git push --quiet --force "https://${GH_TOKEN}@github.com/ybiquitous/react-todo.git" production 2>/dev/null
+git push --quiet --force "https://${GH_TOKEN}@github.com/ybiquitous/react-todo.git" production
