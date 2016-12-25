@@ -10,7 +10,7 @@
     "url": "git+https://github.com/ybiquitous/react-todo.git"
   },
   "engines": {
-    "node": "6"
+    "node": "7"
   },
   "scripts": {
     "start": "DEBUG=app node -r babel-register server.js",
