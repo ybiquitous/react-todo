@@ -1,10 +1,13 @@
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const precss = require('precss')
 const autoprefixer = require('autoprefixer')
 
 const PRODUCTION = process.env.NODE_ENV === 'production'
+
+const outputDir = './public'
 
 const config = {
   entry: {
@@ -13,7 +16,7 @@ const config = {
   },
 
   output: {
-    path: './public',
+    path: outputDir,
     filename: '[name].[hash].js',
   },
 
@@ -65,6 +68,8 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false,
       },
     }),
+
+    new CleanWebpackPlugin([outputDir]),
   ])
 }
 

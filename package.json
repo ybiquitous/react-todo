@@ -56,6 +56,7 @@
     "babel-preset-react": "*",
     "browser-sync": "*",
     "chai": "*",
+    "clean-webpack-plugin": "*",
     "concurrently": "*",
     "css-loader": "*",
     "enzyme": "*",
