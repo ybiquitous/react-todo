@@ -26,7 +26,8 @@
     "prewebdriver": "webdriver-manager update",
     "webdriver": "webdriver-manager start --detach",
     "webdriver:stop": "webdriver-manager shutdown",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi"
   },
   "lint-staged": {
     "*.@(js|jsx)": [
