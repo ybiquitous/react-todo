@@ -7,6 +7,12 @@ language: node_js
 node_js:
   - "6"
 
+branches:
+  only:
+    - master
+    - production
+    - staging
+
 addons:
   apt:
     sources:
