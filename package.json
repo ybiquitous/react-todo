@@ -67,7 +67,7 @@
     "concurrently": "*",
     "enzyme": "*",
     "eslint": "*",
-    "eslint-config-ybiquitous": "github:ybiquitous/eslint-config-ybiquitous",
+    "eslint-config-ybiquitous": "*",
     "lint-staged": "*",
     "mocha": "*",
     "pre-commit": "*",

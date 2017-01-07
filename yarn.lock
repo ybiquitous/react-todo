@@ -1969,14 +1969,14 @@ eslint-config-airbnb@^13.0.0:
   dependencies:
     eslint-config-airbnb-base "^10.0.0"
 
-"eslint-config-ybiquitous@github:ybiquitous/eslint-config-ybiquitous":
-  version "1.1.1"
-  resolved "https://codeload.github.com/ybiquitous/eslint-config-ybiquitous/tar.gz/370b902ed7a6dfc99e598a706c64810c3564efd4"
+eslint-config-ybiquitous@*:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-ybiquitous/-/eslint-config-ybiquitous-1.0.1.tgz#363f855a79d7329f88ec555119996d712ff350a6"
   dependencies:
     eslint-config-airbnb "^13.0.0"
-    eslint-plugin-import "^2.2.0"
-    eslint-plugin-jsx-a11y "^2.2.0"
-    eslint-plugin-react "^6.7.0"
+    eslint-plugin-import "^2.1.0"
+    eslint-plugin-jsx-a11y "^2.2.3"
+    eslint-plugin-react "^6.6.0"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
@@ -1993,7 +1993,7 @@ eslint-module-utils@^2.0.0:
     debug "2.2.0"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@^2.2.0:
+eslint-plugin-import@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.2.0.tgz#72ba306fad305d67c4816348a4699a4229ac8b4e"
   dependencies:
@@ -2008,7 +2008,7 @@ eslint-plugin-import@^2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint-plugin-jsx-a11y@^2.2.0:
+eslint-plugin-jsx-a11y@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.3.tgz#4e35cb71b8a7db702ac415c806eb8e8d9ea6c65d"
   dependencies:
@@ -2016,7 +2016,7 @@ eslint-plugin-jsx-a11y@^2.2.0:
     jsx-ast-utils "^1.0.0"
     object-assign "^4.0.1"
 
-eslint-plugin-react@^6.7.0:
+eslint-plugin-react@^6.6.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-6.8.0.tgz#741ab5438a094532e5ce1bbb935d6832356f492d"
   dependencies:
