@@ -9,13 +9,19 @@ const propTypes = {
   onDelete: PropTypes.func,
 }
 
+const defaultProps = {
+  done: false,
+  onDone: null,
+  onDelete: null,
+}
+
 export default function TodoItem({ id, text, done, onDone, onDelete }) {
   function handleChange(event) {
-    onDone({ id, done: event.target.checked })
+    if (onDone) onDone({ id, done: event.target.checked })
   }
 
   function handleDelete() {
-    onDelete({ id })
+    if (onDelete) onDelete({ id })
   }
 
   const domID = `todo-item-${id}`
@@ -47,3 +53,4 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
 }
 
 TodoItem.propTypes = propTypes
+TodoItem.defaultProps = defaultProps

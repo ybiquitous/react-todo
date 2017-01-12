@@ -7,6 +7,11 @@ const propTypes = {
   onDelete: PropTypes.func,
 }
 
+const defaultProps = {
+  onDone: null,
+  onDelete: null,
+}
+
 export default function TodoList({ todos, onDone, onDelete }) {
   function renderItem(todo) {
     return <TodoItem {...todo} key={todo.id} onDone={onDone} onDelete={onDelete} />
@@ -15,3 +20,4 @@ export default function TodoList({ todos, onDone, onDelete }) {
 }
 
 TodoList.propTypes = propTypes
+TodoList.defaultProps = defaultProps
