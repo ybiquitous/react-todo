@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import sinon from 'sinon'
-import { expect } from 'chai'
+import assert from 'assert'
 
 import TodoItem from '../src/scripts/components/TodoItem'
 
@@ -13,11 +13,11 @@ describe('TodoItem', () => {
 
   it('render', () => {
     const wrapper = shallow(<TodoItem {...props} />)
-    expect(wrapper.find('input[type="checkbox"]')).to.have.length(1)
-    expect(wrapper.find('label')).to.have.length(1)
-    expect(wrapper.find('label').text()).to.equal('aaa')
-    expect(wrapper.find('.delete')).to.have.length(1)
-    expect(wrapper.find('.delete').text()).to.equal('❌')
+    assert(wrapper.find('input[type="checkbox"]').length === 1)
+    assert(wrapper.find('label').length === 1)
+    assert(wrapper.find('label').text() === 'aaa')
+    assert(wrapper.find('.delete').length === 1)
+    assert(wrapper.find('.delete').text() === '❌')
   })
 
   it('onDone', () => {
@@ -26,17 +26,15 @@ describe('TodoItem', () => {
     wrapper.find('input').simulate('change', {
       target: { checked: true },
     })
-    expect(onDone).to.have.property('callCount', 1)
-    expect(onDone).to.have.property('args')
-      .that.deep.equals([[{ id: 1, done: true }]])
+    assert(onDone.callCount === 1)
+    assert.deepStrictEqual(onDone.args, [[{ id: 1, done: true }]])
   })
 
   it('onDelete', () => {
     const onDelete = sinon.spy()
     const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
     wrapper.find('.delete').simulate('click', {})
-    expect(onDelete).to.have.property('callCount', 1)
-    expect(onDelete).to.have.property('args')
-      .that.deep.equals([[{ id: 1 }]])
+    assert(onDelete.callCount === 1)
+    assert.deepStrictEqual(onDelete.args, [[{ id: 1 }]])
   })
 })

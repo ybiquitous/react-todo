@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { expect } from 'chai'
+import assert from 'assert'
 import sinon from 'sinon'
 
 import TodoInput from '../src/scripts/components/TodoInput'
@@ -17,14 +17,14 @@ describe('TodoApp', () => {
 
   it('render', () => {
     const wrapper = shallow(<TodoApp {...props} />)
-    expect(wrapper.find(TodoInput)).to.have.length(1)
-    expect(wrapper.find(TodoList)).to.have.length(1)
+    assert(wrapper.find(TodoInput).length === 1)
+    assert(wrapper.find(TodoList).length === 1)
   })
 
   it('add new todo', () => {
     const wrapper = shallow(<TodoApp {...props} />)
     wrapper.find(TodoInput).simulate('commit', { value: 'aaa' })
-    expect(wrapper.state('todos')).to.deep.equal([
+    assert.deepStrictEqual(wrapper.state('todos'), [
       { id: 1, text: 'aaa', done: false },
     ])
   })
@@ -33,7 +33,7 @@ describe('TodoApp', () => {
     const wrapper = shallow(<TodoApp {...props} />)
     wrapper.setState({ todos: [{ id: 1, text: 'aaa', done: false }] })
     wrapper.find(TodoList).simulate('done', { id: 1, done: true })
-    expect(wrapper.state('todos')).to.deep.equal([
+    assert.deepStrictEqual(wrapper.state('todos'), [
       { id: 1, text: 'aaa', done: true },
     ])
   })
@@ -42,6 +42,6 @@ describe('TodoApp', () => {
     const wrapper = shallow(<TodoApp {...props} />)
     wrapper.setState({ todos: [{ id: 1, text: 'aaa', done: false }] })
     wrapper.find(TodoList).simulate('delete', { id: 1 })
-    expect(wrapper.state('todos')).to.have.length(0)
+    assert(wrapper.state('todos').length === 0)
   })
 })

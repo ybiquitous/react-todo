@@ -1,15 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import sinon from 'sinon'
-import { expect } from 'chai'
+import assert from 'assert'
 
 import TodoInput from '../src/scripts/components/TodoInput'
 
 describe('TodoInput', () => {
   it('render', () => {
     const wrapper = shallow(<TodoInput onCommit={sinon.spy()} />)
-    expect(wrapper.find('form')).to.have.length(1)
-    expect(wrapper.find('form input')).to.have.length(1)
+    assert(wrapper.find('form').length === 1)
+    assert(wrapper.find('form input').length === 1)
   })
 
   it('onCommit', () => {
@@ -19,7 +19,7 @@ describe('TodoInput', () => {
       preventDefault() {},
       target: { elements: { todo: { value: ' a ' } } },
     })
-    expect(onCommit).to.have.property('callCount', 1)
-    expect(onCommit).to.have.property('args').that.deep.equals([[{ value: 'a' }]])
+    assert(onCommit.callCount === 1)
+    assert.deepStrictEqual(onCommit.args, [[{ value: 'a' }]])
   })
 })

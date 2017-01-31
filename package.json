@@ -62,14 +62,15 @@
     "webpack-manifest-plugin": "*"
   },
   "devDependencies": {
+    "babel-preset-power-assert": "*",
     "browser-sync": "*",
-    "chai": "*",
     "concurrently": "*",
     "enzyme": "*",
     "eslint": "*",
     "eslint-config-ybiquitous": "*",
     "lint-staged": "*",
     "mocha": "*",
+    "power-assert": "*",
     "pre-commit": "*",
     "react-addons-test-utils": "*",
     "sinon": "*",

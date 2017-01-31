@@ -32,7 +32,7 @@ yarn watch
 
 - Enzyme
 - Mocha
-- Chai
+- Power Assert
 - Sinon
 - WebdriverIO
 
