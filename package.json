@@ -18,13 +18,10 @@
     "dev": "webpack-dev-server",
     "test": "mocha --reporter dot --compilers jsx:babel-register test",
     "test:watch": "npm test -- --watch",
-    "test:e2e": "wdio wdio.conf.js",
+    "test:e2e": "testcafe chrome test/e2e -S -s tmp/screenshots",
     "eslint:all": "eslint --ext=.js,.jsx --ignore-path=.gitignore --max-warnings=0 .",
     "stylelint:all": "stylelint --ignore-path=.gitignore \"./src/styles/**/*\"",
     "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
-    "prewebdriver": "webdriver-manager update",
-    "webdriver": "webdriver-manager start --detach",
-    "webdriver:stop": "webdriver-manager shutdown",
     "lint-staged": "lint-staged",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi"
   },
@@ -66,6 +63,7 @@
     "enzyme": "*",
     "eslint": "*",
     "eslint-config-ybiquitous": "*",
+    "eslint-plugin-testcafe": "^0.2.1",
     "lint-staged": "*",
     "mocha": "*",
     "power-assert": "*",
@@ -74,9 +72,8 @@
     "sinon": "*",
     "stylelint": "*",
     "stylelint-config-standard": "*",
+    "testcafe": "^0.13.0",
     "wdio-mocha-framework": "*",
-    "webdriver-manager": "*",
-    "webdriverio": "*",
     "webpack-dev-server": "*"
   }
 }

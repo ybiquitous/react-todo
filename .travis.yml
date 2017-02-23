@@ -24,14 +24,11 @@ script:
   - yarn test
 
   # E2E test
-  - yarn webdriver
   - yarn build &
   - yarn start &
   - export TEST_SERVER_PID=$!
   - sleep 5
-  - export CHROME_BIN=google-chrome
   - yarn test:e2e
-  - yarn webdriver:stop
   - kill -9 $TEST_SERVER_PID
 
 deploy:

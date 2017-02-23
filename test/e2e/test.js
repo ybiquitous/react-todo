@@ -1,31 +1,36 @@
-const assert = require('assert')
+import { Selector } from 'testcafe'
 
-describe('TODO List', () => {
-  it('initial', () => {
-    browser.url('/')
-    assert.strictEqual(browser.getTitle(), 'TODO List')
-    assert.strictEqual(browser.getText('h1'), 'TODO List0')
-    assert.strictEqual(browser.getValue('input[type="text"]'), '')
-  })
+fixture `TODO List`
+  .page `http://localhost:3000`
 
-  it('add TODO', () => {
-    browser.url('/')
-    browser.setValue('input[type="text"]', 'abc')
-    browser.submitForm('form')
-    assert.strictEqual(browser.getText('label'), 'abc')
-    assert.strictEqual(browser.isSelected('input[type="checkbox"]'), false)
-  })
+test('initial', async (t) => {
+  await t
+    .expect(Selector('title').textContent).eql('TODO List')
+    .expect(Selector('h1').textContent).eql('TODO List0')
+    .expect(Selector('input[type="text"]').value).eql('')
+})
 
-  it('make TODO done', () => {
-    browser.url('/')
-    browser.click('input[type="checkbox"]')
-    assert.strictEqual(browser.isSelected('input[type="checkbox"]'), true)
-  })
+test('add TODO', async (t) => {
+  await t
+    .typeText('input[type="text"]', 'abc')
+    .pressKey('enter')
+    .expect(Selector('label').textContent).eql('abc')
+    .expect(Selector('input[type="checkbox"]').checked).eql(false)
+})
 
-  it('delete TODO', () => {
-    browser.url('/')
-    browser.click('.delete')
-    assert.strictEqual(browser.isExisting('input[type="checkbox"]'), false)
-    assert.strictEqual(browser.isExisting('label'), false)
-  })
+test('make TODO done', async (t) => {
+  await t
+    .typeText('input[type="text"]', 'def')
+    .pressKey('enter')
+    .click('input[type="checkbox"]')
+    .expect(Selector('input[type="checkbox"]').checked).eql(true)
+})
+
+test('delete TODO', async (t) => {
+  await t
+    .typeText('input[type="text"]', 'xyz')
+    .pressKey('enter')
+    .click('.delete')
+    .expect(Selector('input[type="checkbox"]').exists).eql(false)
+    .expect(Selector('label').exists).eql(false)
 })

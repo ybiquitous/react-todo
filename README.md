@@ -33,7 +33,7 @@ yarn dev
 - Mocha
 - Power Assert
 - Sinon
-- WebdriverIO
+- TestCafe
 
 Run tests:
 
@@ -52,7 +52,5 @@ Run E2E tests:
 ```sh
 yarn build
 yarn start
-yarn webdriver
 yarn test:e2e
-yarn webdriver:stop
 ```
