@@ -26,13 +26,20 @@ app.set('publicDir', path.join(__dirname, 'public'))
 
 const manifestPath = path.join(app.get('publicDir'), 'assets.json')
 const cachedManifest = new Map()
+const manifestKey = 'manifest'
 function loadManifest() {
-  if (cachedManifest.has('key') && app.get('production')) {
-    return cachedManifest.get('key')
+  if (!app.get('production')) {
+    return {
+      'styles.css': 'styles.css',
+      'scripts.js': 'scripts.js',
+    }
+  }
+  if (cachedManifest.has(manifestKey)) {
+    return cachedManifest.get(manifestKey)
   }
   const data = fs.readFileSync(manifestPath, 'utf8')
   const json = JSON.parse(data)
-  cachedManifest.set('key', json)
+  cachedManifest.set(manifestKey, json)
   return json
 }
 

@@ -20,12 +20,11 @@ yarn start
 - Webpack
 - ESLint
 - Postcss
-- Browsersync
 
 Run on local browser:
 
 ```sh
-yarn watch
+yarn dev
 ```
 
 ## Test

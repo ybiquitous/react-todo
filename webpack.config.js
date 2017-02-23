@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -6,7 +7,7 @@ const autoprefixer = require('autoprefixer')
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
-const outputDir = './public'
+const outputDir = path.resolve('./public')
 
 const config = {
   entry: {
@@ -16,13 +17,22 @@ const config = {
 
   output: {
     path: outputDir,
-    filename: '[name].[hash].js',
+    filename: IS_PRODUCTION ? '[name].[chunkhash].js' : '[name].js',
   },
 
   devtool: 'cheap-module-inline-source-map',
 
+  devServer: {
+    contentBase: outputDir,
+    compress: true,
+    port: 9000,
+    proxy: {
+      '/': 'http://localhost:3000',
+    },
+  },
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js(x)?$/,
         exclude: /node_modules/,
@@ -63,7 +73,9 @@ const config = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new ExtractTextPlugin('[name].[hash].css'),
+
+    new ExtractTextPlugin(IS_PRODUCTION ? '[name].[contenthash].css' : '[name].css'),
+
     new ManifestPlugin({ fileName: 'assets.json' }),
   ],
 }

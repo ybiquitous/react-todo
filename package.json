@@ -14,9 +14,8 @@
   },
   "scripts": {
     "start": "DEBUG=app node -r babel-register server.js",
-    "browser-sync": "browser-sync start --config bs-config.js --color",
     "build": "webpack",
-    "watch": "concurrently \"webpack --watch --color\" \"npm run browser-sync\"",
+    "dev": "webpack-dev-server",
     "test": "mocha --reporter dot --compilers jsx:babel-register test",
     "test:watch": "npm test -- --watch",
     "test:e2e": "wdio wdio.conf.js",
@@ -63,7 +62,6 @@
   },
   "devDependencies": {
     "babel-preset-power-assert": "*",
-    "browser-sync": "*",
     "concurrently": "*",
     "enzyme": "*",
     "eslint": "*",
@@ -78,6 +76,7 @@
     "stylelint-config-standard": "*",
     "wdio-mocha-framework": "*",
     "webdriver-manager": "*",
-    "webdriverio": "*"
+    "webdriverio": "*",
+    "webpack-dev-server": "*"
   }
 }
