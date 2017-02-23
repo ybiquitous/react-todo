@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const precss = require('precss')
 const autoprefixer = require('autoprefixer')
 
-const PRODUCTION = process.env.NODE_ENV === 'production'
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
 const outputDir = './public'
 
@@ -25,27 +25,37 @@ const config = {
     loaders: [
       {
         test: /\.js(x)?$/,
-        exclude: /(node_modules)/,
-        loader: 'babel',
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
       {
         test: /\.(s)?css$/,
-        loader: ExtractTextPlugin.extract('style', [
-          `css?importLoaders=1${PRODUCTION ? '&minimize' : ''}`,
-          `postcss?${PRODUCTION ? '' : 'sourceMap=inline'}`,
-        ]),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: true,
+                minimize: IS_PRODUCTION,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [precss, autoprefixer],
+                sourceMap: IS_PRODUCTION ? '' : 'inline',
+              },
+            },
+          ],
+        }),
       },
     ],
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
-
-  postcss: () => [
-    precss,
-    autoprefixer,
-  ],
 
   plugins: [
     new webpack.DefinePlugin({
@@ -58,17 +68,12 @@ const config = {
   ],
 }
 
-if (process.env.NODE_ENV === 'production') {
-  config.devtool = null
+if (IS_PRODUCTION) {
+  config.devtool = false
 
   config.plugins.push(...[
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    }),
+    new webpack.optimize.UglifyJsPlugin(),
   ])
 }
-
 
 module.exports = config

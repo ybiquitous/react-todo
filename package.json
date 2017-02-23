@@ -51,7 +51,7 @@
     "debug": "*",
     "ejs": "*",
     "express": "*",
-    "extract-text-webpack-plugin": "*",
+    "extract-text-webpack-plugin": "beta",
     "postcss-loader": "*",
     "precss": "*",
     "react": "*",
