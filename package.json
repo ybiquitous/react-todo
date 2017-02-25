@@ -55,7 +55,7 @@
     "css-loader": "*",
     "debug": "*",
     "ejs": "*",
-    "express": "*",
+    "express": "^5.0.0-alpha.2",
     "extract-text-webpack-plugin": "*",
     "postcss-loader": "*",
     "precss": "*",
