@@ -16,7 +16,7 @@
     "start": "DEBUG=app node -r babel-register server.js",
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "test": "mocha --reporter dot --compilers jsx:babel-register test",
+    "test": "ava",
     "test:watch": "npm test -- --watch",
     "test:e2e": "testcafe chrome test/e2e -S -s tmp/screenshots",
     "eslint:all": "eslint --ext=.js,.jsx --ignore-path=.gitignore --max-warnings=0 .",
@@ -24,6 +24,15 @@
     "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
     "lint-staged": "lint-staged",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.*"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "lint-staged": {
     "*.@(js|jsx)": [
@@ -58,22 +67,20 @@
     "webpack-manifest-plugin": "*"
   },
   "devDependencies": {
+    "ava": "*",
     "babel-preset-power-assert": "*",
     "concurrently": "*",
     "enzyme": "*",
     "eslint": "*",
     "eslint-config-ybiquitous": "*",
-    "eslint-plugin-testcafe": "^0.2.1",
+    "eslint-plugin-testcafe": "*",
     "lint-staged": "*",
-    "mocha": "*",
-    "power-assert": "*",
     "pre-commit": "*",
     "react-addons-test-utils": "*",
     "sinon": "*",
     "stylelint": "*",
     "stylelint-config-standard": "*",
-    "testcafe": "^0.13.0",
-    "wdio-mocha-framework": "*",
+    "testcafe": "<1",
     "webpack-dev-server": "*"
   }
 }

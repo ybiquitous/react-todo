@@ -30,8 +30,7 @@ yarn dev
 ## Test
 
 - Enzyme
-- Mocha
-- Power Assert
+- Ava
 - Sinon
 - TestCafe
 
