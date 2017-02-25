@@ -13,7 +13,8 @@
     "node": "7"
   },
   "scripts": {
-    "start": "DEBUG=app node -r babel-register server.js",
+    "prestart": "concurrently \"babel server.js -d build\" \"babel src -d build/src\"",
+    "start": "DEBUG=app node build/server.js",
     "build": "webpack",
     "dev": "webpack-dev-server",
     "test": "ava",
@@ -47,11 +48,11 @@
   ],
   "dependencies": {
     "autoprefixer": "*",
+    "babel-cli": "*",
     "babel-core": "*",
     "babel-loader": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
-    "babel-register": "*",
     "css-loader": "*",
     "debug": "*",
     "ejs": "*",
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "ava": "*",
+    "babel-register": "*",
     "concurrently": "*",
     "enzyme": "*",
     "eslint": "*",

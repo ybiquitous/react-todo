@@ -1,10 +1,12 @@
-const fs = require('fs')
-const path = require('path')
-const debug = require('debug')('app')
-const express = require('express')
-const React = require('react')
-const ReactDOMServer = require('react-dom/server')
-const TodoApp = require('./src/scripts/components/TodoApp').default
+import fs from 'fs'
+import path from 'path'
+import _debug from 'debug'
+import express from 'express'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import TodoApp from './src/scripts/components/TodoApp'
+
+const debug = _debug('app')
 
 const todoApp = React.createFactory(TodoApp)
 const dummyStorage = {
@@ -22,7 +24,7 @@ app.set('x-powered-by', false)
 
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
-app.set('publicDir', path.join(__dirname, 'public'))
+app.set('publicDir', path.join(process.cwd(), 'public'))
 
 const manifestPath = path.join(app.get('publicDir'), 'assets.json')
 const cachedManifest = new Map()
