@@ -46,7 +46,7 @@ const config = {
             {
               loader: 'css-loader',
               options: {
-                importLoaders: true,
+                importLoaders: 1,
                 minimize: IS_PRODUCTION,
               },
             },
