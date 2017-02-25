@@ -68,7 +68,6 @@
   },
   "devDependencies": {
     "ava": "*",
-    "babel-preset-power-assert": "*",
     "concurrently": "*",
     "enzyme": "*",
     "eslint": "*",
