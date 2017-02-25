@@ -80,6 +80,7 @@
     "sinon": "*",
     "stylelint": "*",
     "stylelint-config-standard": "*",
+    "stylelint-order": "*",
     "testcafe": "<1",
     "webpack-dev-server": "*"
   }
