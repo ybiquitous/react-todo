@@ -11,21 +11,18 @@ addons:
 
 cache: yarn
 
-before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - yarn build
+  - "yarn start &" # run as background process
+  - sleep 3 # give Web server some time to bind to sockets
 
 script:
   - yarn lint
   - yarn test
-
-  # E2E test
-  - yarn build &
-  - yarn start &
-  - export TEST_SERVER_PID=$!
-  - sleep 5
   - yarn test:e2e
-  - kill -9 $TEST_SERVER_PID
 
 deploy:
   provider: heroku
