@@ -12,7 +12,7 @@ const outputDir = path.resolve('./public')
 const config = {
   entry: {
     scripts: './src/scripts.js',
-    styles: './src/styles.js',
+    styles: './src/styles/index.css',
   },
 
   output: {
