@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/ybiquitous/react-todo.png?label=ready&title=Ready)](https://waffle.io/ybiquitous/react-todo)
 [![Build Status](https://travis-ci.org/ybiquitous/react-todo.svg)](https://travis-ci.org/ybiquitous/react-todo)
 [![dependencies Status](https://david-dm.org/ybiquitous/react-todo/status.svg)](https://david-dm.org/ybiquitous/react-todo)
 [![devDependencies Status](https://david-dm.org/ybiquitous/react-todo/dev-status.svg)](https://david-dm.org/ybiquitous/react-todo?type=dev)
