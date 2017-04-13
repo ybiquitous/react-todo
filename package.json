@@ -77,7 +77,7 @@
     "eslint-plugin-testcafe": "*",
     "lint-staged": "*",
     "pre-commit": "*",
-    "react-addons-test-utils": "*",
+    "react-test-renderer": "*",
     "sinon": "*",
     "stylelint": "*",
     "stylelint-config-standard": "*",
