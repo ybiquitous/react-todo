@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 
@@ -9,7 +10,7 @@ const propTypes = {
   }).isRequired,
 }
 
-export default class TodoApp extends Component {
+export default class TodoApp extends React.Component {
   constructor(props) {
     super(props)
 

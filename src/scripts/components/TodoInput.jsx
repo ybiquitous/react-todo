@@ -1,10 +1,11 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const propTypes = {
   onCommit: PropTypes.func.isRequired,
 }
 
-export default class TodoInput extends Component {
+export default class TodoInput extends React.Component {
   constructor(props) {
     super(props)
 

@@ -61,6 +61,7 @@
     "extract-text-webpack-plugin": "*",
     "postcss-loader": "*",
     "precss": "*",
+    "prop-types": "*",
     "react": "*",
     "react-dom": "*",
     "react-tap-or-click": "*",
