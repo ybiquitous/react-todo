@@ -3,8 +3,6 @@
 *.log
 .tern-*
 .dir-locals.el
-/public/*.js
-/public/*.css
-/public/assets.json
+/public/assets
 /errorShots
 /tmp

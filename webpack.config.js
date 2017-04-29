@@ -2,12 +2,13 @@ const path = require('path')
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const precss = require('precss')
 const autoprefixer = require('autoprefixer')
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
-const outputDir = path.resolve('./public')
+const outputDir = path.join(__dirname, 'public', 'assets')
 
 const config = {
   entry: {
@@ -68,6 +69,8 @@ const config = {
   },
 
   plugins: [
+    new CleanWebpackPlugin([outputDir]),
+
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -76,7 +79,7 @@ const config = {
 
     new ExtractTextPlugin(IS_PRODUCTION ? '[name].[contenthash].css' : '[name].css'),
 
-    new ManifestPlugin({ fileName: 'assets.json' }),
+    new ManifestPlugin({ fileName: 'files.json' }),
   ],
 }
 

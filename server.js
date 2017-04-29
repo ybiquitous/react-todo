@@ -24,9 +24,9 @@ app.set('x-powered-by', false)
 
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
-app.set('publicDir', path.join(process.cwd(), 'public'))
+app.set('publicDir', path.join(__dirname, 'public'))
 
-const manifestPath = path.join(app.get('publicDir'), 'assets.json')
+const manifestPath = path.join(app.get('publicDir'), 'assets', 'files.json')
 const cachedManifest = new Map()
 const manifestKey = 'manifest'
 function loadManifest() {
