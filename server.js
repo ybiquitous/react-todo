@@ -24,7 +24,7 @@ app.set('x-powered-by', false)
 
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
-app.set('publicDir', path.join(__dirname, 'public'))
+app.set('publicDir', path.join(process.cwd(), 'public'))
 
 const manifestPath = path.join(app.get('publicDir'), 'assets', 'files.json')
 const cachedManifest = new Map()
@@ -39,10 +39,12 @@ function loadManifest() {
   if (cachedManifest.has(manifestKey)) {
     return cachedManifest.get(manifestKey)
   }
-  const data = fs.readFileSync(manifestPath, 'utf8')
-  const json = JSON.parse(data)
-  cachedManifest.set(manifestKey, json)
-  return json
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+  Object.entries(manifest).forEach(([key, value]) => {
+    manifest[key] = `assets/${value}`
+  })
+  cachedManifest.set(manifestKey, manifest)
+  return manifest
 }
 
 app.get('/', (req, res) => {
