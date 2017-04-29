@@ -3,9 +3,9 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import test from 'ava'
 
-import TodoInput from '../src/scripts/components/TodoInput'
-import TodoList from '../src/scripts/components/TodoList'
-import TodoApp from '../src/scripts/components/TodoApp'
+import TodoInput from '../TodoInput'
+import TodoList from '../TodoList'
+import TodoApp from '../TodoApp'
 
 let sandbox
 let props

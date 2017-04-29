@@ -29,7 +29,7 @@
   },
   "ava": {
     "files": [
-      "test/*.test.*"
+      "**/__tests__/**/*"
     ],
     "require": [
       "babel-register"

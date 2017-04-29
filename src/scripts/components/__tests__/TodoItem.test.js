@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import test from 'ava'
 
-import TodoItem from '../src/scripts/components/TodoItem'
+import TodoItem from '../TodoItem'
 
 let props
 

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import test from 'ava'
 
-import TodoInput from '../src/scripts/components/TodoInput'
+import TodoInput from '../TodoInput'
 
 test('render', (t) => {
   const wrapper = shallow(<TodoInput onCommit={sinon.spy()} />)
