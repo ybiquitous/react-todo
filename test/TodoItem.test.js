@@ -30,10 +30,25 @@ test('onDone', (t) => {
   t.deepEqual(onDone.args, [[{ id: 1, done: true }]])
 })
 
-test('onDelete', (t) => {
+test('onDelete on click', (t) => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
   wrapper.find('.delete').simulate('click', {})
   t.true(onDelete.callCount === 1)
   t.deepEqual(onDelete.args, [[{ id: 1 }]])
+})
+
+test('onDelete on press ENTER', (t) => {
+  const onDelete = sinon.spy()
+  const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
+  wrapper.find('.delete').simulate('keypress', { key: 'Enter' })
+  t.true(onDelete.callCount === 1)
+  t.deepEqual(onDelete.args, [[{ id: 1 }]])
+})
+
+test('onDelete on press non-ENTER', (t) => {
+  const onDelete = sinon.spy()
+  const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
+  wrapper.find('.delete').simulate('keypress', { key: 'A' })
+  t.true(onDelete.callCount === 0)
 })

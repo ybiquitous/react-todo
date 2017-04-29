@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import tapOrClick from 'react-tap-or-click'
 
 const propTypes = {
   id: PropTypes.number.isRequired,
@@ -18,11 +17,13 @@ const defaultProps = {
 
 export default function TodoItem({ id, text, done, onDone, onDelete }) {
   function handleChange(event) {
-    if (onDone) onDone({ id, done: event.target.checked })
+    if (onDone) { onDone({ id, done: event.target.checked }) }
   }
 
-  function handleDelete() {
-    if (onDelete) onDelete({ id })
+  function handleDelete({ key }) {
+    if (!onDelete) { return }
+    if (key && key !== 'Enter') { return }
+    onDelete({ id })
   }
 
   const domID = `todo-item-${id}`
@@ -42,13 +43,18 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
       >
         {text}
       </label>
+      { /* eslint-disable jsx-a11y/no-static-element-interactions */ }
       <span
         className="delete"
-        title="Delete"
-        {...tapOrClick(handleDelete)}
+        title="Delete (click or press ENTER)"
+        onClick={handleDelete}
+        onKeyPress={handleDelete}
+        role="button"
+        tabIndex="0"
       >
         ❌
       </span>
+      { /* eslint-enable jsx-a11y/no-static-element-interactions */ }
     </li>
   )
 }

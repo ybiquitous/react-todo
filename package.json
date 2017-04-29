@@ -18,12 +18,13 @@
     "build": "webpack",
     "dev": "webpack-dev-server",
     "test": "ava",
-    "test:watch": "npm test -- --watch",
+    "test:tap": "ava --tap",
+    "test:watch": "ava --watch",
     "test:e2e": "testcafe chrome test/e2e -S -s tmp/screenshots",
     "eslint:all": "eslint --ext=.js,.jsx --ignore-path=.gitignore --max-warnings=0 .",
     "stylelint:all": "stylelint --ignore-path=.gitignore \"./src/styles/**/*\"",
     "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
-    "lint-staged": "lint-staged",
+    "precommit": "concurrently lint-staged \"npm run test:tap\"",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi"
   },
   "ava": {
@@ -42,10 +43,6 @@
     ],
     "*.@(css|scss)": "stylelint"
   },
-  "pre-commit": [
-    "lint-staged",
-    "test"
-  ],
   "dependencies": {
     "autoprefixer": "*",
     "babel-cli": "*",
@@ -64,7 +61,6 @@
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
-    "react-tap-or-click": "*",
     "style-loader": "*",
     "webpack": "*",
     "webpack-manifest-plugin": "*"
@@ -76,8 +72,8 @@
     "eslint": "*",
     "eslint-config-ybiquitous": "*",
     "eslint-plugin-testcafe": "*",
+    "husky": "*",
     "lint-staged": "*",
-    "pre-commit": "*",
     "react-test-renderer": "*",
     "sinon": "*",
     "stylelint": "*",
