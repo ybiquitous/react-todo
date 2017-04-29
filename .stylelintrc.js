@@ -3,6 +3,6 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     'string-quotes': 'double',
-    'order/declaration-block-properties-alphabetical-order': true,
+    'order/properties-alphabetical-order': true,
   },
 }
