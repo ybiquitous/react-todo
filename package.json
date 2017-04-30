@@ -18,13 +18,14 @@
     "build": "webpack",
     "dev": "webpack-dev-server --open",
     "test": "ava",
-    "test:tap": "ava --tap",
+    "test:ci": "ava --tap",
     "test:watch": "ava --watch",
     "test:e2e": "testcafe chrome test/e2e -S -s tmp/screenshots",
+    "test:e2e:ci": "npm run test:e2e -- -r minimal",
     "eslint:all": "eslint --ext=.js,.jsx --ignore-path=.gitignore --max-warnings=0 .",
     "stylelint:all": "stylelint --ignore-path=.gitignore \"./src/styles/**/*\"",
     "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
-    "precommit": "concurrently lint-staged \"npm run test:tap\"",
+    "precommit": "concurrently lint-staged \"npm run test:ci\"",
     "postinstall": "if [ $BUILD_ASSETS ]; then npm run build; fi"
   },
   "ava": {
