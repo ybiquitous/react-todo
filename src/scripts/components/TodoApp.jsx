@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
+import styles from './TodoApp.css'
 
 const propTypes = {
   storage: PropTypes.shape({
@@ -51,9 +52,9 @@ export default class TodoApp extends React.Component {
     const { todos } = this.state
     return (
       <div>
-        <h1>
+        <h1 className={styles.heading}>
           TODO List
-          <span className="count">{todos.length}</span>
+          <span className={styles.count}>{todos.length}</span>
         </h1>
         <TodoInput onCommit={this.handleCommit} />
         <TodoList

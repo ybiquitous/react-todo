@@ -1,10 +1,8 @@
-const path = require('path')
-const webpack = require('webpack')
-const ManifestPlugin = require('webpack-manifest-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const precss = require('precss')
-const autoprefixer = require('autoprefixer')
+import path from 'path'
+import webpack from 'webpack'
+import ManifestPlugin from 'webpack-manifest-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
@@ -32,6 +30,10 @@ const config = {
     },
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+
   module: {
     rules: [
       {
@@ -40,32 +42,28 @@ const config = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(s)?css$/,
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 1,
+                importLoader: 1,
+                modules: true,
                 minimize: IS_PRODUCTION,
               },
             },
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [precss, autoprefixer],
-                sourceMap: IS_PRODUCTION ? '' : 'inline',
+                sourceMap: IS_PRODUCTION ? null : 'inline',
               },
             },
           ],
         }),
       },
     ],
-  },
-
-  resolve: {
-    extensions: ['.js', '.jsx'],
   },
 
   plugins: [
@@ -91,4 +89,4 @@ if (IS_PRODUCTION) {
   ])
 }
 
-module.exports = config
+export default config

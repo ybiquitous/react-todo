@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './TodoInput.css'
 
 const propTypes = {
   onCommit: PropTypes.func.isRequired,
@@ -32,15 +33,23 @@ export default class TodoInput extends React.Component {
     this.setState({ invalid: !value })
   }
 
-  render() {
+  inputStyle() {
     const { invalid } = this.state
-    let inputClass
-    if (invalid == null) {
-      inputClass = null
-    } else {
-      inputClass = invalid ? 'invalid' : 'valid'
+    const classNames = [styles.input]
+    if (invalid != null) {
+      classNames.push(invalid ? styles.invalid : styles.valid)
     }
+    return classNames.join(' ')
+  }
 
+  alertStyle() {
+    const { invalid } = this.state
+    const classNames = [styles.alert]
+    if (invalid) { classNames.push(styles.alertShow) }
+    return classNames.join(' ')
+  }
+
+  render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
@@ -50,9 +59,9 @@ export default class TodoInput extends React.Component {
           autoFocus
           maxLength="300"
           onInput={this.handleInput}
-          className={inputClass}
+          className={this.inputStyle()}
         />
-        <p className={`alert${invalid ? ' show' : ''}`} role="alert">
+        <p className={this.alertStyle()} role="alert">
           Please input some text.
         </p>
       </form>

@@ -30,7 +30,7 @@ test('delete TODO', async (t) => {
   await t
     .typeText('input[type="text"]', 'xyz')
     .pressKey('enter')
-    .click('.delete')
+    .click('[role="button"]')
     .expect(Selector('input[type="checkbox"]').exists).eql(false)
     .expect(Selector('label').exists).eql(false)
 })

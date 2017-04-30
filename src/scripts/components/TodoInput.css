@@ -1,0 +1,27 @@
+.input {
+  font-size: 1.5rem;
+  height: 4rem;
+  padding: 0.5rem;
+  transition: background 0.3s ease-out;
+  width: 100%;
+}
+
+.valid {
+  background: #dfd;
+}
+
+.invalid {
+  background: #fdd;
+}
+
+.alert {
+  color: #f00;
+  margin: 0.5rem 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.alertShow {
+  max-height: 1.2rem;
+}

@@ -8,15 +8,16 @@ import TodoApp from './src/scripts/components/TodoApp'
 
 const debug = _debug('app')
 
-const todoApp = React.createFactory(TodoApp)
 const dummyStorage = {
   load() {},
   save() {},
 }
 
+const basedir = process.cwd()
+
 const app = express()
 
-app.set('views', './src/views')
+app.set('views', path.join(basedir, 'src', 'views'))
 app.set('view engine', 'ejs')
 
 app.set('etag', false)
@@ -24,7 +25,7 @@ app.set('x-powered-by', false)
 
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
-app.set('publicDir', path.join(process.cwd(), 'public'))
+app.set('publicDir', path.join(basedir, 'public'))
 
 const manifestPath = path.join(app.get('publicDir'), 'assets', 'files.json')
 const cachedManifest = new Map()
@@ -33,6 +34,7 @@ function loadManifest() {
   if (!app.get('production')) {
     return {
       'styles.css': 'styles.css',
+      'scripts.css': 'scripts.css',
       'scripts.js': 'scripts.js',
     }
   }
@@ -48,13 +50,14 @@ function loadManifest() {
 }
 
 app.get('/', (req, res) => {
-  const html = ReactDOMServer.renderToString(todoApp({
+  const html = ReactDOMServer.renderToString(React.createElement(TodoApp, {
     storage: dummyStorage,
   }))
   const manifest = loadManifest(manifestPath)
   res.render('index', {
     html,
     stylePath: manifest['styles.css'],
+    stylePath2: manifest['scripts.css'],
     scriptPath: manifest['scripts.js'],
   })
 })

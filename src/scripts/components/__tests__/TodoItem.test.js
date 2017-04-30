@@ -16,8 +16,8 @@ test('render', (t) => {
   t.true(wrapper.find('input[type="checkbox"]').length === 1)
   t.true(wrapper.find('label').length === 1)
   t.true(wrapper.find('label').text() === 'aaa')
-  t.true(wrapper.find('.delete').length === 1)
-  t.true(wrapper.find('.delete').text() === '❌')
+  t.true(wrapper.find('[role="button"]').length === 1)
+  t.true(wrapper.find('[role="button"]').text() === '❌')
 })
 
 test('onDone', (t) => {
@@ -33,7 +33,7 @@ test('onDone', (t) => {
 test('onDelete on click', (t) => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
-  wrapper.find('.delete').simulate('click', {})
+  wrapper.find('[role="button"]').simulate('click', {})
   t.true(onDelete.callCount === 1)
   t.deepEqual(onDelete.args, [[{ id: 1 }]])
 })
@@ -41,7 +41,7 @@ test('onDelete on click', (t) => {
 test('onDelete on press ENTER', (t) => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
-  wrapper.find('.delete').simulate('keypress', { key: 'Enter' })
+  wrapper.find('[role="button"]').simulate('keypress', { key: 'Enter' })
   t.true(onDelete.callCount === 1)
   t.deepEqual(onDelete.args, [[{ id: 1 }]])
 })
@@ -49,6 +49,6 @@ test('onDelete on press ENTER', (t) => {
 test('onDelete on press non-ENTER', (t) => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props} onDelete={onDelete} />)
-  wrapper.find('.delete').simulate('keypress', { key: 'A' })
+  wrapper.find('[role="button"]').simulate('keypress', { key: 'A' })
   t.true(onDelete.callCount === 0)
 })

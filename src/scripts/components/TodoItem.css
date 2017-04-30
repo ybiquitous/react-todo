@@ -1,0 +1,44 @@
+.item {
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  transition: background 0.3s ease-out;
+
+  &:hover {
+    background: #f2f9fe;
+  }
+}
+
+.label {
+  cursor: pointer;
+  display: inline-block;
+  flex: 80%;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.done {
+  color: #ddd;
+  text-decoration: line-through;
+}
+
+.checkbox {
+  margin: 0 2em;
+  transform: scale(2);
+}
+
+.deleteButton {
+  color: #f44;
+  cursor: pointer;
+  flex: 10%;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: filter 0.3s ease-out;
+
+  &:hover {
+    filter: brightness(300%);
+  }
+}

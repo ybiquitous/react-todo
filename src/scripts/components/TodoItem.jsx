@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './TodoItem.css'
 
 const propTypes = {
   id: PropTypes.number.isRequired,
@@ -28,24 +29,25 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
 
   const domID = `todo-item-${id}`
   return (
-    <li>
+    <li className={styles.item}>
       <input
         id={domID}
         type="checkbox"
         title="Done"
         checked={done}
         onChange={handleChange}
+        className={styles.checkbox}
       />
       <label
         htmlFor={domID}
-        className={done ? 'done' : null}
+        className={`${styles.label} ${done ? styles.done : ''}`}
         title={text}
       >
         {text}
       </label>
       { /* eslint-disable jsx-a11y/no-static-element-interactions */ }
       <span
-        className="delete"
+        className={styles.deleteButton}
         title="Delete (click or press ENTER)"
         onClick={handleDelete}
         onKeyPress={handleDelete}
