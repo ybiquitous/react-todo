@@ -11,8 +11,8 @@
     <title>TODO List</title>
   </head>
   <body>
-    <link rel="stylesheet" href="<%= stylePath2 %>">
     <main><%- html %></main>
-    <script src="<%= scriptPath %>"></script>
+    <script>(function(){var a=function(){var c=document.createElement('link');c.rel='stylesheet',c.href='<%= stylePath2 %>';var d=document.head;d.parentNode.insertBefore(c,d)};requestAnimationFrame(a)})()</script>
+    <script src="<%= scriptPath %>" async defer></script>
   </body>
 </html>
