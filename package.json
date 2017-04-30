@@ -58,6 +58,7 @@
     "babel-preset-env": "*",
     "babel-preset-react": "*",
     "clean-webpack-plugin": "*",
+    "compression": "*",
     "concurrently": "*",
     "css-loader": "*",
     "debug": "*",

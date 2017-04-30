@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import _debug from 'debug'
 import express from 'express'
+import compression from 'compression'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import TodoApp from './src/scripts/components/TodoApp'
@@ -26,6 +27,8 @@ app.set('x-powered-by', false)
 app.set('port', Number(process.env.PORT || 3000))
 app.set('production', process.env.NODE_ENV === 'production')
 app.set('publicDir', path.join(basedir, 'public'))
+
+app.use(compression())
 
 const manifestPath = path.join(app.get('publicDir'), 'assets', 'files.json')
 const cachedManifest = new Map()
