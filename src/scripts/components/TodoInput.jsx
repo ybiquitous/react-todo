@@ -56,7 +56,6 @@ export default class TodoInput extends React.Component {
           type="text"
           name="todo"
           placeholder="e.g. Reserve restaurant"
-          autoFocus
           maxLength="300"
           onInput={this.handleInput}
           className={this.inputStyle()}

@@ -45,7 +45,6 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
       >
         {text}
       </label>
-      { /* eslint-disable jsx-a11y/no-static-element-interactions */ }
       <span
         className={styles.deleteButton}
         title="Delete (click or press ENTER)"
@@ -54,9 +53,8 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
         role="button"
         tabIndex="0"
       >
-        ❌
+        <span role="img" aria-label="Delete">❌</span>
       </span>
-      { /* eslint-enable jsx-a11y/no-static-element-interactions */ }
     </li>
   )
 }
