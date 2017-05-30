@@ -17,6 +17,7 @@ const config = {
   output: {
     path: outputDir,
     filename: IS_PRODUCTION ? '[name].[chunkhash].js' : '[name].js',
+    publicPath: '/assets/',
   },
 
   devtool: 'cheap-module-inline-source-map',
