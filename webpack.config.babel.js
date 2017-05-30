@@ -57,7 +57,7 @@ const config = {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: IS_PRODUCTION ? null : 'inline',
+                sourceMap: IS_PRODUCTION ? false : 'inline',
               },
             },
           ],
