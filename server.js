@@ -33,29 +33,31 @@ app.use(compression())
 const manifestPath = path.join(app.get('publicDir'), 'assets', 'files.json')
 const cachedManifest = new Map()
 const manifestKey = 'manifest'
+
+function convertManifest(manifest) {
+  return Object.entries(manifest).reduce((newManifest, [key, value]) => (
+    Object.assign(newManifest, { [key]: `assets/${value}` })
+  ), {})
+}
+
 function loadManifest() {
   if (!app.get('production')) {
-    return {
-      'styles.css': 'styles.css',
-      'scripts.css': 'scripts.css',
-      'scripts.js': 'scripts.js',
-    }
+    const files = ['styles.css', 'scripts.css', 'scripts.js']
+    return convertManifest(files.reduce((manifest, name) => (
+      Object.assign(manifest, { [name]: name })
+    ), {}))
   }
   if (cachedManifest.has(manifestKey)) {
     return cachedManifest.get(manifestKey)
   }
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-  Object.entries(manifest).forEach(([key, value]) => {
-    manifest[key] = `assets/${value}`
-  })
+  const manifest = convertManifest(JSON.parse(fs.readFileSync(manifestPath, 'utf8')))
   cachedManifest.set(manifestKey, manifest)
   return manifest
 }
 
 app.get('/', (req, res) => {
-  const html = ReactDOMServer.renderToString(React.createElement(TodoApp, {
-    storage: dummyStorage,
-  }))
+  // eslint-disable-next-line react/jsx-filename-extension
+  const html = ReactDOMServer.renderToString(<TodoApp storage={dummyStorage} />)
   const manifest = loadManifest(manifestPath)
   res.render('index', {
     html,
