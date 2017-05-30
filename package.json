@@ -10,7 +10,7 @@
     "url": "git+https://github.com/ybiquitous/react-todo.git"
   },
   "engines": {
-    "node": "7"
+    "node": "8"
   },
   "scripts": {
     "prestart": "webpack --config webpack.config.server.babel.js",
