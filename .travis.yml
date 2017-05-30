@@ -20,7 +20,8 @@ before_script:
 script:
   - yarn lint
   - yarn test:ci
-  - yarn test:e2e:ci
+  # TODO: disable temporarily
+  # - yarn test:e2e:ci
 
 deploy:
   provider: heroku
