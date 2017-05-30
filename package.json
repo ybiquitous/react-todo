@@ -5,10 +5,7 @@
   "description": "React TODO App",
   "main": "server.js",
   "author": "ybiquitous <10koba01@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ybiquitous/react-todo.git"
-  },
+  "repository": "ybiquitous/react-todo",
   "engines": {
     "node": "8"
   },
