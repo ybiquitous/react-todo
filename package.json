@@ -4,7 +4,7 @@
   "private": true,
   "description": "React TODO App",
   "main": "server.js",
-  "author": "ybiquitous <10koba01@gmail.com>",
+  "author": "ybiquitous <ybiquitous@gmail.com>",
   "repository": "ybiquitous/react-todo",
   "engines": {
     "node": "8"
