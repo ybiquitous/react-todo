@@ -41,12 +41,6 @@ Run tests:
 yarn test
 ```
 
-In watch mode:
-
-```sh
-yarn test:watch
-```
-
 Run E2E tests:
 
 ```sh
