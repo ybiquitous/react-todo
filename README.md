@@ -31,7 +31,7 @@ yarn dev
 ## Test
 
 - Enzyme
-- Ava
+- Tape
 - Sinon
 - TestCafe
 

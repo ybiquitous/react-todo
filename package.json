@@ -14,9 +14,7 @@
     "start": "DEBUG=app node server.bundle.js",
     "build": "webpack",
     "dev": "webpack-dev-server --open",
-    "test": "ava",
-    "test:ci": "ava --tap",
-    "test:watch": "ava --watch",
+    "test": "tape -r babel-register -r ./test/css-null-compiler \"./src/**/*.test.js\"",
     "pretest:e2e": "npm run build",
     "test:_e2e": "testcafe --screenshots-on-fails --screenshots tmp/screenshots --app \"npm run start\" --app-init-delay 5000",
     "test:e2e": "npm run test:_e2e -- chrome test/e2e",
@@ -24,25 +22,15 @@
     "eslint:all": "eslint --ext=.js,.jsx --ignore-path=.gitignore --max-warnings=0 .",
     "stylelint:all": "stylelint --ignore-path=.gitignore \"./src/styles/**/*\"",
     "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
-    "precommit": "concurrently lint-staged \"npm run test:ci\"",
+    "precommit": "concurrently lint-staged \"npm test\"",
     "heroku-postbuild": "npm run build"
   },
-  "ava": {
-    "files": [
-      "**/__tests__/**/*"
-    ],
-    "require": [
-      "babel-register",
-      "./test/css-null-compiler"
-    ],
-    "babel": "inherit"
-  },
   "lint-staged": {
-    "*.@(js|jsx)": [
+    "*.{js,jsx}": [
       "eslint --fix --max-warnings=0",
       "git add"
     ],
-    "*.@(css|scss)": "stylelint"
+    "*.{css,scss}": "stylelint"
   },
   "browserslist": [
     "last 2 versions",
@@ -75,7 +63,6 @@
     "webpack-node-externals": "*"
   },
   "devDependencies": {
-    "ava": "*",
     "babel-register": "*",
     "enzyme": "*",
     "eslint": "3",
@@ -88,6 +75,7 @@
     "stylelint": "*",
     "stylelint-config-standard": "*",
     "stylelint-order": "*",
+    "tape": "*",
     "testcafe": "<1",
     "webpack-dev-server": "*"
   }

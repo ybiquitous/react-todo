@@ -23,7 +23,7 @@ before_script:
 
 script:
   - yarn lint
-  - yarn test:ci
+  - yarn test
   # TODO: Failed E2E test in Travis
   # - yarn test:e2e:ci
 

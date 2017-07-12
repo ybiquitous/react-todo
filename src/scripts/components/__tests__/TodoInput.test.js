@@ -1,14 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import sinon from 'sinon'
-import test from 'ava'
+import test from 'tape'
 
 import TodoInput from '../TodoInput'
 
 test('render', (t) => {
   const wrapper = shallow(<TodoInput onCommit={sinon.spy()} />)
-  t.true(wrapper.find('form').length === 1)
-  t.true(wrapper.find('form input').length === 1)
+  t.equal(wrapper.find('form').length, 1)
+  t.equal(wrapper.find('form input').length, 1)
+  t.end()
 })
 
 test('onCommit', (t) => {
@@ -18,6 +19,7 @@ test('onCommit', (t) => {
     preventDefault() {},
     target: { elements: { todo: { value: ' a ' } } },
   })
-  t.true(onCommit.callCount === 1)
+  t.equal(onCommit.callCount, 1)
   t.deepEqual(onCommit.args, [[{ value: 'a' }]])
+  t.end()
 })
