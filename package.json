@@ -2,6 +2,7 @@
   "name": "react-todo",
   "version": "1.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "description": "React TODO App",
   "main": "server.js",
   "author": "ybiquitous <ybiquitous@gmail.com>",
