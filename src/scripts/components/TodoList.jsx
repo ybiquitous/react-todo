@@ -1,12 +1,12 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 import styles from './TodoList.css'
 
-const propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onDone: PropTypes.func,
-  onDelete: PropTypes.func,
+type Props = {
+  todos: Array<Object>,
+  onDone: ({ id: number, done: boolean }) => void,
+  onDelete: ({ id: number }) => void,
 }
 
 const defaultProps = {
@@ -14,12 +14,11 @@ const defaultProps = {
   onDelete: null,
 }
 
-export default function TodoList({ todos, onDone, onDelete }) {
+export default function TodoList({ todos, onDone, onDelete }: Props) {
   function renderItem(todo) {
     return <TodoItem {...todo} key={todo.id} onDone={onDone} onDelete={onDelete} />
   }
   return <ul className={styles.list}>{todos.map(renderItem)}</ul>
 }
 
-TodoList.propTypes = propTypes
 TodoList.defaultProps = defaultProps

@@ -1,24 +1,23 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import styles from './TodoInput.css'
 
-const propTypes = {
-  onCommit: PropTypes.func.isRequired,
-}
-
 export default class TodoInput extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = { invalid: null }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleInput = this.handleInput.bind(this)
+  props: {
+    onCommit: ({ value: string }) => void,
   }
 
-  handleSubmit(event) {
+  state: {
+    invalid: ?boolean,
+  }
+
+  state = { invalid: null }
+
+  handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault()
 
-    const todo = event.target.elements.todo
+    // TODO: property `elements` is unsupported
+    const todo = (event.target: any).elements.todo
     const value = todo.value.trim()
     if (value) {
       this.props.onCommit({ value })
@@ -27,9 +26,8 @@ export default class TodoInput extends React.Component {
     }
   }
 
-  handleInput(event) {
-    const el = event.target
-    const value = el.value.trim()
+  handleInput = ({ target }: SyntheticInputEvent) => {
+    const value = target.value.trim()
     this.setState({ invalid: !value })
   }
 
@@ -67,5 +65,3 @@ export default class TodoInput extends React.Component {
     )
   }
 }
-
-TodoInput.propTypes = propTypes

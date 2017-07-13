@@ -27,7 +27,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "eslint --fix --max-warnings=0",
+      "eslint --fix --max-warnings=0 --no-ignore",
       "git add"
     ],
     "*.{css,scss}": "stylelint"
@@ -54,7 +54,6 @@
     "extract-text-webpack-plugin": "*",
     "postcss-loader": "*",
     "precss": "*",
-    "prop-types": "*",
     "react": "*",
     "react-dom": "*",
     "style-loader": "*",
@@ -63,11 +62,15 @@
     "webpack-node-externals": "*"
   },
   "devDependencies": {
+    "babel-eslint": "*",
+    "babel-preset-flow": "*",
     "babel-register": "*",
     "enzyme": "*",
     "eslint": "3",
     "eslint-config-ybiquitous": "*",
+    "eslint-plugin-flowtype": "*",
     "eslint-plugin-testcafe": "*",
+    "flow-bin": "*",
     "husky": "*",
     "lint-staged": "*",
     "react-test-renderer": "*",

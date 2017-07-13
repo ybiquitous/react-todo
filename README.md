@@ -17,9 +17,10 @@ yarn start
 
 ## Development
 
-- Babel
 - Webpack
+- Babel
 - ESLint
+- Flow
 - Postcss
 
 Run on local browser:

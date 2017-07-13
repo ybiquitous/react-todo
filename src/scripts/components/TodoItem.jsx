@@ -1,13 +1,13 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import styles from './TodoItem.css'
 
-const propTypes = {
-  id: PropTypes.number.isRequired,
-  text: PropTypes.string.isRequired,
-  done: PropTypes.bool,
-  onDone: PropTypes.func,
-  onDelete: PropTypes.func,
+type Props = {
+  id: number,
+  text: string,
+  done: boolean,
+  onDone: ({ id: number, done: boolean }) => void,
+  onDelete: ({ id: number }) => void,
 }
 
 const defaultProps = {
@@ -16,7 +16,7 @@ const defaultProps = {
   onDelete: null,
 }
 
-export default function TodoItem({ id, text, done, onDone, onDelete }) {
+export default function TodoItem({ id, text, done, onDone, onDelete }: Props) {
   function handleChange(event) {
     if (onDone) { onDone({ id, done: event.target.checked }) }
   }
@@ -59,5 +59,4 @@ export default function TodoItem({ id, text, done, onDone, onDelete }) {
   )
 }
 
-TodoItem.propTypes = propTypes
 TodoItem.defaultProps = defaultProps

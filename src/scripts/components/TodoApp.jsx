@@ -1,40 +1,38 @@
+// @flow
 import React from 'react'
-import PropTypes from 'prop-types'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import styles from './TodoApp.css'
 
-const propTypes = {
-  storage: PropTypes.shape({
-    load: PropTypes.func.isRequired,
-    save: PropTypes.func.isRequired,
-  }).isRequired,
+type Storage = {
+  load: () => Object,
+  save: (data: Object) => void,
 }
 
 export default class TodoApp extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = props.storage.load() || { todos: [] }
-
-    this.handleCommit = this.handleCommit.bind(this)
-    this.handleDone = this.handleDone.bind(this)
-    this.handleDelete = this.handleDelete.bind(this)
+  props: {
+    storage: Storage,
   }
 
-  setState(data) {
+  state: {
+    todos: Array<Object>,
+  }
+
+  state = this.props.storage.load() || { todos: [] }
+
+  setState(data: Object) {
     super.setState(data)
     this.props.storage.save(data)
   }
 
-  handleCommit({ value }) {
+  handleCommit = ({ value }: { value: string }) => {
     const todos = this.state.todos
     const maxId = todos.length === 0 ? 0 : Math.max(...todos.map(t => t.id))
     const newTodo = { id: maxId + 1, text: value, done: false }
     this.setState({ todos: [newTodo].concat(todos) })
   }
 
-  handleDone({ id, done }) {
+  handleDone = ({ id, done }: { id: number, done: boolean }) => {
     const found = this.state.todos.find(todo => todo.id === id)
     if (found) {
       found.done = done
@@ -42,7 +40,7 @@ export default class TodoApp extends React.Component {
     }
   }
 
-  handleDelete({ id }) {
+  handleDelete = ({ id }: { id: number }) => {
     const { todos } = this.state
     const deleted = todos.filter(todo => todo.id !== id)
     this.setState({ todos: deleted })
@@ -66,5 +64,3 @@ export default class TodoApp extends React.Component {
     )
   }
 }
-
-TodoApp.propTypes = propTypes
