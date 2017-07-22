@@ -43,6 +43,7 @@
     "babel-cli": "*",
     "babel-core": "*",
     "babel-loader": "*",
+    "babel-plugin-transform-class-properties": "*",
     "babel-preset-env": "*",
     "babel-preset-react": "*",
     "clean-webpack-plugin": "*",
@@ -64,7 +65,6 @@
   },
   "devDependencies": {
     "babel-eslint": "*",
-    "babel-plugin-transform-class-properties": "*",
     "babel-preset-flow": "*",
     "babel-register": "*",
     "enzyme": "*",
