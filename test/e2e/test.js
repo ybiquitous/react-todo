@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe'
 
 fixture `TODO List`
-  .page `http://127.0.0.1:3000`
+  .page `http://localhost:3000`
 
 test('initial', async (t) => {
   await t
