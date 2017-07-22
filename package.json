@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "babel-eslint": "*",
+    "babel-plugin-transform-class-properties": "*",
     "babel-preset-flow": "*",
     "babel-register": "*",
     "enzyme": "*",
