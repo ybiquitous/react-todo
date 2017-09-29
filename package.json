@@ -67,7 +67,7 @@
     "babel-preset-flow": "*",
     "babel-register": "*",
     "enzyme": "*",
-    "eslint": "3",
+    "eslint": "*",
     "eslint-config-ybiquitous": "*",
     "eslint-plugin-flowtype": "*",
     "eslint-plugin-testcafe": "*",
