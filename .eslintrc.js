@@ -12,6 +12,7 @@ module.exports = {
       devDependencies: [
         '**/webpack*',
         '**/*test.*',
+        '**/test/**/*',
       ],
     }],
 
