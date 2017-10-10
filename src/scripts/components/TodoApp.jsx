@@ -9,15 +9,15 @@ type Storage = {
   save: (data: Object) => void,
 }
 
-export default class TodoApp extends React.Component {
-  props: {
-    storage: Storage,
-  }
+type Props = {
+  storage: Storage,
+}
 
-  state: {
-    todos: Array<Object>,
-  }
+type State = {
+  todos: Array<Object>,
+}
 
+export default class TodoApp extends React.Component<Props, State> {
   state = this.props.storage.load() || { todos: [] }
 
   setState(data: Object) {
@@ -40,6 +40,8 @@ export default class TodoApp extends React.Component {
     }
   }
 
+  // TODO: really necessary?
+  // eslint-disable-next-line react/no-unused-prop-types
   handleDelete = ({ id }: { id: number }) => {
     const { todos } = this.state
     const deleted = todos.filter(todo => todo.id !== id)

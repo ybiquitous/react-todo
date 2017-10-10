@@ -2,22 +2,21 @@
 import React from 'react'
 import styles from './TodoInput.css'
 
-export default class TodoInput extends React.Component {
-  props: {
-    onCommit: ({ value: string }) => void,
-  }
+type Props = {
+  onCommit: ({ value: string }) => void,
+}
 
-  state: {
-    invalid: ?boolean,
-  }
+type State = {
+  invalid?: boolean,
+}
 
+export default class TodoInput extends React.Component<Props, State> {
   state = { invalid: null }
 
   handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault()
 
-    // TODO: property `elements` is unsupported
-    const { todo } = (event.target: any).elements
+    const { todo } = event.target.elements
     const value = todo.value.trim()
     if (value) {
       this.props.onCommit({ value })
