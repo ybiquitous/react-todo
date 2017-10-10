@@ -5,9 +5,9 @@ import styles from './TodoItem.css'
 type Props = {
   id: number,
   text: string,
-  done: boolean,
-  onDone: ({ id: number, done: boolean }) => void,
-  onDelete: ({ id: number }) => void,
+  done?: boolean,
+  onDone?: ({ id: number, done: boolean }) => void,
+  onDelete?: ({ id: number }) => void,
 }
 
 const defaultProps = {
@@ -16,7 +16,11 @@ const defaultProps = {
   onDelete: null,
 }
 
-export default function TodoItem({ id, text, done, onDone, onDelete }: Props) {
+export default function TodoItem(props: Props) {
+  const {
+    id, text, done, onDone, onDelete,
+  } = props
+
   function handleChange(event) {
     if (onDone) { onDone({ id, done: event.target.checked }) }
   }
@@ -29,6 +33,7 @@ export default function TodoItem({ id, text, done, onDone, onDelete }: Props) {
 
   const domID = `todo-item-${id}`
   return (
+    /* eslint-disable jsx-a11y/label-has-for */
     <li className={styles.item}>
       <input
         id={domID}
@@ -56,6 +61,7 @@ export default function TodoItem({ id, text, done, onDone, onDelete }: Props) {
         <span role="img" aria-label="Delete">❌</span>
       </span>
     </li>
+    /* eslint-enable jsx-a11y/label-has-for */
   )
 }
 

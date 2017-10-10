@@ -17,7 +17,7 @@ export default class TodoInput extends React.Component {
     event.preventDefault()
 
     // TODO: property `elements` is unsupported
-    const todo = (event.target: any).elements.todo
+    const { todo } = (event.target: any).elements
     const value = todo.value.trim()
     if (value) {
       this.props.onCommit({ value })

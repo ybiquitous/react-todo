@@ -5,8 +5,8 @@ import styles from './TodoList.css'
 
 type Props = {
   todos: Array<Object>,
-  onDone: ({ id: number, done: boolean }) => void,
-  onDelete: ({ id: number }) => void,
+  onDone?: ({ id: number, done: boolean }) => void,
+  onDelete?: ({ id: number }) => void,
 }
 
 const defaultProps = {

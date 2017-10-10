@@ -26,7 +26,7 @@ export default class TodoApp extends React.Component {
   }
 
   handleCommit = ({ value }: { value: string }) => {
-    const todos = this.state.todos
+    const { todos } = this.state
     const maxId = todos.length === 0 ? 0 : Math.max(...todos.map(t => t.id))
     const newTodo = { id: maxId + 1, text: value, done: false }
     this.setState({ todos: [newTodo].concat(todos) })

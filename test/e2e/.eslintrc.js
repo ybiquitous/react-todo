@@ -4,5 +4,6 @@ module.exports = {
   rules: {
     'newline-per-chained-call': 'off',
     'no-unused-expressions': 'off',
+    'template-tag-spacing': 'off',
   },
 }
