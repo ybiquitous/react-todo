@@ -19,18 +19,28 @@
     "test:_e2e": "testcafe --screenshots-on-fails --screenshots tmp/screenshots --app \"npm start\" --app-init-delay 5000",
     "test:e2e": "npm run test:_e2e -- chrome test/e2e",
     "test:e2e:ci": "npm run test:_e2e -- --reporter minimal \"chrome:headless\" test/e2e",
-    "eslint:all": "eslint --ext=.js,.jsx --ignore-path=.gitignore --max-warnings=0 .",
-    "stylelint:all": "stylelint --ignore-path=.gitignore \"./src/styles/**/*\"",
-    "lint": "concurrently \"npm run eslint:all\" \"npm run stylelint:all\"",
-    "precommit": "concurrently lint-staged \"npm test\"",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "test:watch": "tape -r babel-register -r ./test/setup.js -r ./test/css-null-compiler.js \"./src/**/*.test.js\" --watch",
+    "test:coverage": "echo \"unsupported.\" && exit 1",
+    "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "lint:css": "stylelint --ignore-path .gitignore \"**/*.css\"",
+    "lint:css:fix": "npm run lint:css -- --fix",
+    "lint:md": "markdownlint *.md",
+    "lint": "npm-run-all --print-name --print-label --parallel lint:*",
+    "precommit": "lint-staged && npm test",
+    "commitmsg": "commitlint -e"
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "eslint --fix --max-warnings=0 --no-ignore",
+      "eslint --fix --no-ignore",
       "git add"
     ],
-    "*.{css,scss}": "stylelint"
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.md": "markdownlint"
   },
   "browserslist": [
     "last 2 versions",
@@ -47,7 +57,6 @@
     "babel-preset-react": "*",
     "clean-webpack-plugin": "*",
     "compression": "*",
-    "concurrently": "*",
     "css-loader": "*",
     "debug": "*",
     "ejs": "*",
@@ -68,14 +77,9 @@
     "babel-register": "*",
     "enzyme": "*",
     "enzyme-adapter-react-16": "*",
-    "eslint": "*",
-    "eslint-config-ybiquitous": "*",
     "eslint-plugin-flowtype": "*",
     "eslint-plugin-testcafe": "*",
     "flow-bin": "*",
-    "husky": "*",
-    "lint-staged": "*",
-    "prettier": "*",
     "react-test-renderer": "*",
     "sinon": "*",
     "stylelint": "*",
@@ -83,6 +87,7 @@
     "stylelint-order": "*",
     "tape": "*",
     "testcafe": "<1",
-    "webpack-dev-server": "*"
+    "webpack-dev-server": "*",
+    "ybiq": "*"
   }
 }

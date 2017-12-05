@@ -8,12 +8,11 @@ module.exports = {
   plugins: ['flowtype'],
 
   rules: {
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: [
-        '**/webpack*',
-        '**/*test.*',
-        '**/test/**/*',
-      ],
-    }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['**/webpack*', '**/*test.*', '**/test/**/*'],
+      },
+    ],
   },
 }
