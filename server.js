@@ -4,7 +4,7 @@ import _debug from 'debug'
 import express from 'express'
 import compression from 'compression'
 import React from 'react'
-import ReactDOMServer from 'react-dom/server'
+import { renderToNodeStream } from 'react-dom/server'
 import TodoApp from './src/scripts/components/TodoApp'
 
 const debug = _debug('app')
@@ -64,13 +64,19 @@ function loadManifest() {
 
 app.get('/', (req, res) => {
   // eslint-disable-next-line react/jsx-filename-extension
-  const html = ReactDOMServer.renderToString(<TodoApp storage={dummyStorage} />)
-  const manifest = loadManifest(manifestPath)
-  res.render('index', {
-    html,
-    stylePath: manifest['styles.css'],
-    stylePath2: manifest['scripts.css'],
-    scriptPath: manifest['scripts.js'],
+  const stream = renderToNodeStream(<TodoApp storage={dummyStorage} />)
+  let html = ''
+  stream.on('data', chunk => {
+    html += chunk
+  })
+  stream.on('end', () => {
+    const manifest = loadManifest(manifestPath)
+    res.render('index', {
+      html,
+      stylePath: manifest['styles.css'],
+      stylePath2: manifest['scripts.css'],
+      scriptPath: manifest['scripts.js'],
+    })
   })
 })
 
