@@ -17,17 +17,21 @@ const defaultProps = {
 }
 
 export default function TodoItem(props: Props) {
-  const {
-    id, text, done, onDone, onDelete,
-  } = props
+  const { id, text, done, onDone, onDelete } = props
 
   function handleChange(event) {
-    if (onDone) { onDone({ id, done: event.target.checked }) }
+    if (onDone) {
+      onDone({ id, done: event.target.checked })
+    }
   }
 
   function handleDelete({ key }) {
-    if (!onDelete) { return }
-    if (key && key !== 'Enter') { return }
+    if (!onDelete) {
+      return
+    }
+    if (key && key !== 'Enter') {
+      return
+    }
     onDelete({ id })
   }
 
@@ -58,7 +62,9 @@ export default function TodoItem(props: Props) {
         role="button"
         tabIndex="0"
       >
-        <span role="img" aria-label="Delete">❌</span>
+        <span role="img" aria-label="Delete">
+          ❌
+        </span>
       </span>
     </li>
     /* eslint-enable jsx-a11y/label-has-for */

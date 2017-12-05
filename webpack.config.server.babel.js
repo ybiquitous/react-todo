@@ -40,7 +40,5 @@ export default {
     ],
   },
 
-  plugins: [
-    new ExtractTextPlugin('tmp/server.css'),
-  ],
+  plugins: [new ExtractTextPlugin('tmp/server.css')],
 }

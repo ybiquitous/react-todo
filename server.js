@@ -35,22 +35,29 @@ const cachedManifest = new Map()
 const manifestKey = 'manifest'
 
 function convertManifest(manifest) {
-  return Object.entries(manifest).reduce((newManifest, [key, value]) => (
-    Object.assign(newManifest, { [key]: `assets/${value}` })
-  ), {})
+  return Object.entries(manifest).reduce(
+    (newManifest, [key, value]) =>
+      Object.assign(newManifest, { [key]: `assets/${value}` }),
+    {},
+  )
 }
 
 function loadManifest() {
   if (!app.get('production')) {
     const files = ['styles.css', 'scripts.css', 'scripts.js']
-    return convertManifest(files.reduce((manifest, name) => (
-      Object.assign(manifest, { [name]: name })
-    ), {}))
+    return convertManifest(
+      files.reduce(
+        (manifest, name) => Object.assign(manifest, { [name]: name }),
+        {},
+      ),
+    )
   }
   if (cachedManifest.has(manifestKey)) {
     return cachedManifest.get(manifestKey)
   }
-  const manifest = convertManifest(JSON.parse(fs.readFileSync(manifestPath, 'utf8')))
+  const manifest = convertManifest(
+    JSON.parse(fs.readFileSync(manifestPath, 'utf8')),
+  )
   cachedManifest.set(manifestKey, manifest)
   return manifest
 }

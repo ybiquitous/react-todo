@@ -7,7 +7,7 @@ import TodoItem from '../TodoItem'
 
 const props = () => ({ id: 1, text: 'aaa' })
 
-test('render', (t) => {
+test('render', t => {
   const wrapper = shallow(<TodoItem {...props()} />)
   t.equal(wrapper.find('input[type="checkbox"]').length, 1)
   t.equal(wrapper.find('label').length, 1)
@@ -17,7 +17,7 @@ test('render', (t) => {
   t.end()
 })
 
-test('onDone', (t) => {
+test('onDone', t => {
   const onDone = sinon.spy()
   const wrapper = shallow(<TodoItem {...props()} onDone={onDone} />)
   wrapper.find('input').simulate('change', {
@@ -28,7 +28,7 @@ test('onDone', (t) => {
   t.end()
 })
 
-test('onDelete on click', (t) => {
+test('onDelete on click', t => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props()} onDelete={onDelete} />)
   wrapper.find('[role="button"]').simulate('click', {})
@@ -37,7 +37,7 @@ test('onDelete on click', (t) => {
   t.end()
 })
 
-test('onDelete on press ENTER', (t) => {
+test('onDelete on press ENTER', t => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props()} onDelete={onDelete} />)
   wrapper.find('[role="button"]').simulate('keypress', { key: 'Enter' })
@@ -46,7 +46,7 @@ test('onDelete on press ENTER', (t) => {
   t.end()
 })
 
-test('onDelete on press non-ENTER', (t) => {
+test('onDelete on press non-ENTER', t => {
   const onDelete = sinon.spy()
   const wrapper = shallow(<TodoItem {...props()} onDelete={onDelete} />)
   wrapper.find('[role="button"]').simulate('keypress', { key: 'A' })

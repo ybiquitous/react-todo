@@ -76,7 +76,9 @@ const config = {
       },
     }),
 
-    new ExtractTextPlugin(IS_PRODUCTION ? '[name].[contenthash].css' : '[name].css'),
+    new ExtractTextPlugin(
+      IS_PRODUCTION ? '[name].[contenthash].css' : '[name].css',
+    ),
 
     new ManifestPlugin({ fileName: 'files.json' }),
   ],
@@ -85,9 +87,7 @@ const config = {
 if (IS_PRODUCTION) {
   config.devtool = false
 
-  config.plugins.push(...[
-    new webpack.optimize.UglifyJsPlugin(),
-  ])
+  config.plugins.push(...[new webpack.optimize.UglifyJsPlugin()])
 }
 
 export default config

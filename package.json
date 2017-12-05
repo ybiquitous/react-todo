@@ -75,6 +75,7 @@
     "flow-bin": "*",
     "husky": "*",
     "lint-staged": "*",
+    "prettier": "*",
     "react-test-renderer": "*",
     "sinon": "*",
     "stylelint": "*",

@@ -11,21 +11,21 @@ const props = () => ({
   storage: { load: sinon.spy(), save: sinon.spy() },
 })
 
-test('render', (t) => {
+test('render', t => {
   const wrapper = shallow(<TodoApp {...props()} />)
   t.equal(wrapper.find(TodoInput).length, 1)
   t.equal(wrapper.find(TodoList).length, 1)
   t.end()
 })
 
-test('add new todo', (t) => {
+test('add new todo', t => {
   const wrapper = shallow(<TodoApp {...props()} />)
   wrapper.find(TodoInput).simulate('commit', { value: 'aaa' })
   t.deepEqual(wrapper.state('todos'), [{ id: 1, text: 'aaa', done: false }])
   t.end()
 })
 
-test('todo done', (t) => {
+test('todo done', t => {
   const wrapper = shallow(<TodoApp {...props()} />)
   wrapper.setState({ todos: [{ id: 1, text: 'aaa', done: false }] })
   wrapper.find(TodoList).simulate('done', { id: 1, done: true })
@@ -33,7 +33,7 @@ test('todo done', (t) => {
   t.end()
 })
 
-test('delete todo', (t) => {
+test('delete todo', t => {
   const wrapper = shallow(<TodoApp {...props()} />)
   wrapper.setState({ todos: [{ id: 1, text: 'aaa', done: false }] })
   wrapper.find(TodoList).simulate('delete', { id: 1 })

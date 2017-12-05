@@ -42,7 +42,9 @@ export default class TodoInput extends React.Component<Props, State> {
   alertStyle() {
     const { invalid } = this.state
     const classNames = [styles.alert]
-    if (invalid) { classNames.push(styles.alertShow) }
+    if (invalid) {
+      classNames.push(styles.alertShow)
+    }
     return classNames.join(' ')
   }
 

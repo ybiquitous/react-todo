@@ -16,7 +16,9 @@ const defaultProps = {
 
 export default function TodoList({ todos, onDone, onDelete }: Props) {
   function renderItem(todo) {
-    return <TodoItem {...todo} key={todo.id} onDone={onDone} onDelete={onDelete} />
+    return (
+      <TodoItem {...todo} key={todo.id} onDone={onDone} onDelete={onDelete} />
+    )
   }
   return <ul className={styles.list}>{todos.map(renderItem)}</ul>
 }
