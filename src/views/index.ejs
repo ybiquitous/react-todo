@@ -12,7 +12,7 @@
   </head>
   <body>
     <main><%- html %></main>
-    <script>(function(){var a=function(){var c=document.createElement('link');c.rel='stylesheet',c.href='<%= stylePath2 %>';var d=document.head;d.parentNode.insertBefore(c,d)};requestAnimationFrame(a)})()</script>
+    <script>(function(){var a=function(){var c=document.createElement('link');c.rel='stylesheet',c.href='<%= stylePath2 %>';var d=document.head;d.appendChild(c)};requestAnimationFrame(a)})()</script>
     <script src="<%= scriptPath %>" async defer></script>
   </body>
 </html>
