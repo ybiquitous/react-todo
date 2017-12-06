@@ -60,5 +60,6 @@ typings/
 .env
 
 # custom
+tmp
 public/assets
 *.bundle.js
