@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/ybiquitous/react-todo.svg)](https://travis-ci.org/ybiquitous/react-todo)
 [![dependencies Status](https://david-dm.org/ybiquitous/react-todo/status.svg)](https://david-dm.org/ybiquitous/react-todo)
 [![devDependencies Status](https://david-dm.org/ybiquitous/react-todo/dev-status.svg)](https://david-dm.org/ybiquitous/react-todo?type=dev)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 ToDo web application as playground via [React](https://reactjs.org/).
 
