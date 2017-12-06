@@ -86,7 +86,7 @@
     "stylelint-config-standard": "*",
     "stylelint-order": "*",
     "tape": "*",
-    "testcafe": "<1",
+    "testcafe": "*",
     "webpack-dev-server": "*",
     "ybiq": "*"
   }
