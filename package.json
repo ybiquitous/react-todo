@@ -15,9 +15,9 @@
     "start": "DEBUG=app node server.bundle.js",
     "build": "webpack",
     "dev": "webpack-dev-server --open",
-    "test": "tape -r babel-register -r ./test/setup.js -r ./test/css-null-compiler.js \"./src/**/*.test.js\"",
+    "test": "tape -r babel-register -r ./test/setup.js -r ./test/css-null-compiler.js src/**/*.test.*",
     "test:watch": "watch \"npm test\"",
-    "test:coverage": "echo \"unsupported.\" && exit 1",
+    "test:coverage": "NODE_ENV=test nyc --check-coverage npm test",
     "test:_e2e": "testcafe --screenshots-on-fails --screenshots tmp/screenshots --app \"npm start\" --app-init-delay 5000",
     "test:e2e": "npm run test:_e2e -- chrome test/e2e",
     "test:e2e:ci": "npm run test:_e2e -- --reporter minimal \"chrome:headless\" test/e2e",
@@ -28,7 +28,7 @@
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:md": "markdownlint *.md",
     "lint": "npm-run-all --print-name --print-label --parallel lint:*",
-    "precommit": "lint-staged && npm test",
+    "precommit": "lint-staged && npm run test:coverage",
     "commitmsg": "commitlint -e"
   },
   "lint-staged": {
@@ -73,6 +73,7 @@
   },
   "devDependencies": {
     "babel-eslint": "*",
+    "babel-plugin-istanbul": "*",
     "babel-preset-flow": "*",
     "babel-register": "*",
     "enzyme": "*",
@@ -80,6 +81,7 @@
     "eslint-plugin-flowtype": "*",
     "eslint-plugin-testcafe": "*",
     "flow-bin": "*",
+    "nyc": "*",
     "react-test-renderer": "*",
     "sinon": "*",
     "stylelint": "*",

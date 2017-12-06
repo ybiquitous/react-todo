@@ -23,3 +23,12 @@ test('onCommit', t => {
   t.deepEqual(onCommit.args, [[{ value: 'a' }]])
   t.end()
 })
+
+test('input', t => {
+  const wrapper = shallow(<TodoInput onCommit={sinon.spy()} />)
+  const input = wrapper.find('input')
+  input.simulate('input', { target: { value: '' } })
+  t.equal(input.prop('className'), '')
+  t.equal(wrapper.find('p').prop('className'), ' ')
+  t.end()
+})
