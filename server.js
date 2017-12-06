@@ -1,13 +1,13 @@
 import fs from 'fs'
 import path from 'path'
-import _debug from 'debug'
+import pino from 'pino'
 import express from 'express'
 import compression from 'compression'
 import React from 'react'
 import { renderToNodeStream } from 'react-dom/server'
 import TodoApp from './src/scripts/components/TodoApp'
 
-const debug = _debug('app')
+const logger = pino({ prettyPrint: true })
 
 const dummyStorage = {
   load() {},
@@ -83,5 +83,5 @@ app.get('/', (req, res) => {
 app.use(express.static(app.get('publicDir')))
 
 app.listen(app.get('port'), () => {
-  debug(`Listening on ${app.get('port')} port`)
+  logger.info(`Hello React Todo App on port ${app.get('port')}!`)
 })
