@@ -8,7 +8,7 @@
   "author": "ybiquitous <ybiquitous@gmail.com>",
   "repository": "ybiquitous/react-todo",
   "engines": {
-    "node": "8"
+    "node": "9"
   },
   "scripts": {
     "prestart": "webpack --config webpack.config.server.babel.js",
