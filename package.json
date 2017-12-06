@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "license": "UNLICENSED",
-  "description": "React TODO App",
+  "description": "React ToDo",
   "main": "server.js",
   "author": "ybiquitous <ybiquitous@gmail.com>",
   "repository": "ybiquitous/react-todo",
