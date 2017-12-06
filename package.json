@@ -16,12 +16,12 @@
     "build": "webpack",
     "dev": "webpack-dev-server --open",
     "test": "tape -r babel-register -r ./test/setup.js -r ./test/css-null-compiler.js \"./src/**/*.test.js\"",
+    "test:watch": "watch \"npm test\"",
+    "test:coverage": "echo \"unsupported.\" && exit 1",
     "test:_e2e": "testcafe --screenshots-on-fails --screenshots tmp/screenshots --app \"npm start\" --app-init-delay 5000",
     "test:e2e": "npm run test:_e2e -- chrome test/e2e",
     "test:e2e:ci": "npm run test:_e2e -- --reporter minimal \"chrome:headless\" test/e2e",
     "heroku-postbuild": "npm run build",
-    "test:watch": "tape -r babel-register -r ./test/setup.js -r ./test/css-null-compiler.js \"./src/**/*.test.js\" --watch",
-    "test:coverage": "echo \"unsupported.\" && exit 1",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx .",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:css": "stylelint --ignore-path .gitignore \"**/*.css\"",
@@ -87,6 +87,7 @@
     "stylelint-order": "*",
     "tape": "*",
     "testcafe": "*",
+    "watch": "*",
     "webpack-dev-server": "*",
     "ybiq": "*"
   }
