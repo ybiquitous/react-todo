@@ -8,7 +8,7 @@ if ('serviceWorker' in navigator) {
     .then(registration => {
       console.info(
         'ServiceWorker registration successful with scope:',
-        registration.scope,
+        registration.scope
       )
     })
     .catch(err => {

@@ -38,7 +38,7 @@ function convertManifest(manifest) {
   return Object.entries(manifest).reduce(
     (newManifest, [key, value]) =>
       Object.assign(newManifest, { [key]: `assets/${value}` }),
-    {},
+    {}
   )
 }
 
@@ -48,15 +48,15 @@ function loadManifest() {
     return convertManifest(
       files.reduce(
         (manifest, name) => Object.assign(manifest, { [name]: name }),
-        {},
-      ),
+        {}
+      )
     )
   }
   if (cachedManifest.has(manifestKey)) {
     return cachedManifest.get(manifestKey)
   }
   const manifest = convertManifest(
-    JSON.parse(fs.readFileSync(manifestPath, 'utf8')),
+    JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   )
   cachedManifest.set(manifestKey, manifest)
   return manifest

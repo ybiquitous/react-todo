@@ -77,7 +77,7 @@ const config = {
     }),
 
     new ExtractTextPlugin(
-      IS_PRODUCTION ? '[name].[contenthash].css' : '[name].css',
+      IS_PRODUCTION ? '[name].[contenthash].css' : '[name].css'
     ),
 
     new ManifestPlugin({ fileName: 'files.json' }),
